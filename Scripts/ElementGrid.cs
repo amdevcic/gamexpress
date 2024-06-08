@@ -44,17 +44,26 @@ public partial class ElementGrid : Control
                 int neighbors = CountNeighbors(i, j);
                 // GD.Print($"Slot ({i},{j}) - Element: {elem.elementName}, Neighbors: {neighbors}, Required: {elem.numNeighbors}");
 
-                // check conditions
-                //GD.Print(elem.elementName);
+                // Check conditions
                 if (elem.elementName == "Carbon") {
                     carbonPositions.Add((i, j));
+                }
+                else if (elem.elementName == "Sulphur") {
+                    int oxygenNeighbors = CountSpecificNeighbors(i, j, "Oxygen");
+                    int hydrogenNeighbors = CountSpecificNeighbors(i, j, "Hydrogen");
+                    if (oxygenNeighbors == 2 || hydrogenNeighbors == 2) {
+                        pts += elem.points;
+                        correct.Add(slots[j, i]);
+                    } else {
+                        incorrect.Add(slots[j, i]);
+                    }
                 }
                 else if (elem.numNeighbors > 0 && neighbors == elem.numNeighbors) {
                     pts += elem.points;
                     correct.Add(slots[j, i]);
                 } 
                 else if (elem.numNeighbors == 0) {
-                    pts += elem.points * (1+neighbors);
+                    pts += elem.points * (1 + neighbors);
                     correct.Add(slots[j, i]);
                 }
                 else {
@@ -85,10 +94,10 @@ public partial class ElementGrid : Control
                 foreach (var pos in carbonPositions) {
                     slots[pos.y, pos.x].SetIncorrect();
                 }
-            } else
-            {
+            } else {
                 foreach (var pos in carbonPositions) {
                     correct.Add(slots[pos.y, pos.x]);
+                    pts += 10; //carbon points
                 }
             }
         }
@@ -107,6 +116,26 @@ public partial class ElementGrid : Control
 
         return pts;
     }
+
+    private int CountSpecificNeighbors(int x, int y, string elementName) {
+        int count = 0;
+        int[,] directions = new int[,] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+
+        for (int i = 0; i < directions.GetLength(0); i++) {
+            int newX = x + directions[i, 0];
+            int newY = y + directions[i, 1];
+
+            if (newX >= 0 && newX < width && newY >= 0 && newY < height) {
+                Element neighborElem = slots[newY, newX].Element;
+                if (neighborElem != null && neighborElem.elementName == elementName) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
 
 
 
