@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/ElementGrid.cs" id="1_o328f"]
 [ext_resource type="PackedScene" uid="uid://rvlsd1xgnccy" path="res://Scenes/slot.tscn" id="2_hm2c7"]
-[ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Resorces/helium.tres" id="3_nxhpg"]
+[ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Elements/helium.tres" id="3_nxhpg"]
 
 [node name="ElementGrid" type="Control"]
 layout_mode = 3

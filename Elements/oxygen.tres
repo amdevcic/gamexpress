@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://btk0i7mpfhc3l"]
+
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="1_8spiw"]
+[ext_resource type="Texture2D" uid="uid://dpon5k6m1xjvr" path="res://Assets/Icon5.png" id="1_vyye4"]
+
+[resource]
+script = ExtResource("1_8spiw")
+elementName = "Oxygen"
+image = ExtResource("1_vyye4")
+numNeighbors = 0
+points = 0

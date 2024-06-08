@@ -1,15 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class PotionShelf : Node
 {
     [Export]
-    public PackedScene PotionElementScene { get; set; }
-
-    [Export]
     public NodePath GridContainerPath { get; set; }
 
     private GridContainer _gridContainer;
+    [Export] public Element[] elements;
 
     public override void _Ready()
     {

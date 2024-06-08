@@ -1,23 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://ben7u7o33rnkf"]
+[gd_scene load_steps=11 format=3 uid="uid://dlpmct52t3yc1"]
 
 [ext_resource type="Script" path="res://Scripts/PotionShelf.cs" id="1_rutof"]
-[ext_resource type="PackedScene" uid="uid://bw7gm2rdvx4x4" path="res://Elements/element1.tscn" id="2_sapw5"]
+[ext_resource type="Resource" uid="uid://bedie3qdbgmbt" path="res://Elements/carbon.tres" id="2_vbwo0"]
 [ext_resource type="Texture2D" uid="uid://dv16pvfiw5eb7" path="res://Assets/shelf_transperent.png" id="3_mn38c"]
+[ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Elements/helium.tres" id="3_r1uv2"]
+[ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="4_xle5x"]
+[ext_resource type="Resource" uid="uid://c3hssvv6eex56" path="res://Elements/lithium.tres" id="5_g18c8"]
+[ext_resource type="Resource" uid="uid://dqgt3hpn7gwi0" path="res://Elements/mercury.tres" id="6_hv56i"]
+[ext_resource type="Resource" uid="uid://daj5ax48x33kv" path="res://Elements/nitrogen.tres" id="7_r08vi"]
+[ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="8_ag8xl"]
+[ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="9_j8uqg"]
 
 [node name="PotionShelf" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.5, 1)
 script = ExtResource("1_rutof")
-PotionElementScene = ExtResource("2_sapw5")
 GridContainerPath = NodePath("GridContainer")
+elements = Array[Object]([ExtResource("2_vbwo0"), ExtResource("3_r1uv2"), ExtResource("4_xle5x"), ExtResource("5_g18c8"), ExtResource("6_hv56i"), ExtResource("7_r08vi"), ExtResource("8_ag8xl"), ExtResource("9_j8uqg")])
 
 [node name="GridContainer" type="GridContainer" parent="."]
-z_index = 1
 layout_mode = 0
 offset_left = 10.0
-offset_right = 110.0
-offset_bottom = 188.0
+offset_right = 245.0
+offset_bottom = 373.0
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 6
 columns = 3
@@ -26,4 +36,5 @@ columns = 3
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 188.0
+scale = Vector2(2, 2)
 texture = ExtResource("3_mn38c")

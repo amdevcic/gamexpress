@@ -22,8 +22,8 @@ public partial class ElementGrid : Control
                 int neighbors = CountNeighbors(i, j);
                 // GD.Print($"Slot ({i},{j}) - Element: {elem.elementName}, Neighbors: {neighbors}, Required: {elem.numNeighbors}");
 
-                if (elem.numNeighbors > 0 && neighbors == elem.numNeighbors) {
-                    pts += elem.points;
+                if ((elem.numNeighbors > 0 && neighbors == elem.numNeighbors) || elem.numNeighbors == 0) {
+                    pts += elem.points*neighbors;
                 }
             }
         }
