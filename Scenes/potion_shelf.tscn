@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlpmct52t3yc1"]
+[gd_scene load_steps=12 format=3 uid="uid://dlpmct52t3yc1"]
 
 [ext_resource type="Script" path="res://Scripts/PotionShelf.cs" id="1_rutof"]
 [ext_resource type="Resource" uid="uid://bedie3qdbgmbt" path="res://Elements/carbon.tres" id="2_vbwo0"]
@@ -10,8 +10,10 @@
 [ext_resource type="Resource" uid="uid://daj5ax48x33kv" path="res://Elements/nitrogen.tres" id="7_r08vi"]
 [ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="8_ag8xl"]
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="9_j8uqg"]
+[ext_resource type="PackedScene" uid="uid://rvlsd1xgnccy" path="res://Scenes/slot.tscn" id="10_3bspl"]
 
 [node name="PotionShelf" type="Control"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 3
 anchors_preset = 13
 anchor_left = 0.5
@@ -24,6 +26,7 @@ grow_vertical = 2
 scale = Vector2(1.5, 1)
 script = ExtResource("1_rutof")
 elements = Array[Object]([ExtResource("2_vbwo0"), ExtResource("3_r1uv2"), ExtResource("4_xle5x"), ExtResource("5_g18c8"), ExtResource("6_hv56i"), ExtResource("7_r08vi"), ExtResource("8_ag8xl"), ExtResource("9_j8uqg")])
+slot = ExtResource("10_3bspl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
