@@ -11,7 +11,7 @@ public partial class Slot : ColorRect
     }
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return this.Element == null;
+        return true;
     }
 
     public override Variant _GetDragData(Vector2 atPosition)
@@ -28,8 +28,16 @@ public partial class Slot : ColorRect
     public override void _DropData(Vector2 atPosition, Variant data)
     {
         DragData d = data.As<DragData>(); 
-        SetElement(d.element);
-        d.parent.SetElement(null);
+        if (this.Element == null) {
+            // If this slot is empty, just move the element here
+            SetElement(d.element);
+            d.parent.SetElement(null);
+        } else {
+            // If this slot has an element, swap the elements
+            Element tempElement = this.Element;
+            SetElement(d.element);
+            d.parent.SetElement(tempElement);
+        }
     }
 
     public void SetElement(Element element) {

@@ -15,6 +15,9 @@
 [ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="11_wjevn"]
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="12_n6brp"]
 [ext_resource type="Resource" uid="uid://c2wx88vexbd1s" path="res://Elements/iron.tres" id="13_e7bis"]
+[ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
+[ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
+[ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="7_rkyal"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
 font_size = 32
@@ -33,6 +36,8 @@ potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/PotionShelf")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -2
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,7 +84,11 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(157.39, 47.13)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_rkyal")
 text = "Evaluate"
 
 [node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
