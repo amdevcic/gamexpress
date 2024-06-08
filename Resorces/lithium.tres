@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://c3hssvv6eex56"]
+
+[ext_resource type="Texture2D" uid="uid://deyrkbqiyx6c4" path="res://Assets/Icon3.png" id="1_rdci2"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="1_s5f58"]
+
+[resource]
+script = ExtResource("1_s5f58")
+elementName = "Lithium"
+image = ExtResource("1_rdci2")

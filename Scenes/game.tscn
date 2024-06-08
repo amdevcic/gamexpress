@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=3 format=3 uid="uid://gx1wim4ep8yf"]
 
+[ext_resource type="PackedScene" uid="uid://ben7u7o33rnkf" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 
 [node name="Game" type="Node2D"]
@@ -26,7 +27,7 @@ fill_mode = 2
 
 [node name="Timer" type="Timer" parent="CanvasLayer/UI/HBoxContainer/GameTimer"]
 
-[node name="PotionShelf" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_j0y0x")]
 layout_mode = 2
 
 [node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_n6s50")]
