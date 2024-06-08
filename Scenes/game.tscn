@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=12 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 [ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
-[ext_resource type="Resource" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
+[ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
+[ext_resource type="Texture2D" uid="uid://dmcqucyfwedgb" path="res://Assets/Bookshelf copy.png" id="6_yaklw"]
+[ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="7_rkyal"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
 font_size = 32
@@ -25,6 +27,8 @@ potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/PotionShelf")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -2
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,6 +75,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_rkyal")
 text = "Evaluate"
 
 [node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
@@ -95,5 +100,21 @@ scale_amount_min = 5.0
 scale_amount_max = 7.0
 scale_amount_curve = SubResource("Curve_iac1t")
 color = Color(0.317647, 1, 0.313726, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = -1
+z_as_relative = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 71.665
+offset_top = -169.83
+offset_right = 141.665
+offset_bottom = -46.4551
+grow_vertical = 2
+scale = Vector2(2.67, 2.67)
+texture = ExtResource("6_yaklw")
+expand_mode = 1
 
 [connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]

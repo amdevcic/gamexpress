@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://dqgt3hpn7gwi0"]
+
+[ext_resource type="Texture2D" uid="uid://bnpnv4oqbhxh" path="res://Assets/Icon10.png" id="1_vdett"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_tec4j"]
+
+[resource]
+script = ExtResource("2_tec4j")
+elementName = "Iron"
+image = ExtResource("1_vdett")
+numNeighbors = 4
+points = 10
