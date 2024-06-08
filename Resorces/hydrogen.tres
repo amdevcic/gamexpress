@@ -7,3 +7,5 @@
 script = ExtResource("1_m3tb8")
 elementName = "Hydrogen"
 image = ExtResource("1_175nm")
+numNeighbors = 0
+points = 10

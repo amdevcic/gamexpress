@@ -7,3 +7,5 @@
 script = ExtResource("1_f2k7j")
 elementName = "Helium"
 image = ExtResource("1_jlacj")
+numNeighbors = 1
+points = 10
