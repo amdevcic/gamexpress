@@ -8,7 +8,7 @@ offset_right = 134.0
 offset_bottom = 636.0
 size_flags_horizontal = 4
 size_flags_vertical = 1
-fill_mode = 2
+fill_mode = 3
 script = ExtResource("1_5m8un")
 
 [node name="Timer" type="Timer" parent="."]

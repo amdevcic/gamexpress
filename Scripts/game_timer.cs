@@ -15,7 +15,7 @@ public partial class game_timer : ProgressBar
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.print(_timer.TimeLeft);
-		this.Value = (float)(_timer.TimeLeft / _timer.WaitTime);
+		// GD.Print(_timer.TimeLeft / _timer.WaitTime);
+		this.Value = (float)(_timer.TimeLeft);
 	}
 }
