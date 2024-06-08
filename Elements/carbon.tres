@@ -7,5 +7,5 @@
 script = ExtResource("2_tgmrr")
 elementName = "Carbon"
 image = ExtResource("1_e6obh")
-numNeighbors = 2
+numNeighbors = 0
 points = 10
