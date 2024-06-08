@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=2 format=3 uid="uid://gx1wim4ep8yf"]
+
+[ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 2
+alignment = 1
+
+[node name="GameTimer" type="ProgressBar" parent="CanvasLayer/UI/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+fill_mode = 2
+
+[node name="Timer" type="Timer" parent="CanvasLayer/UI/HBoxContainer/GameTimer"]
+
+[node name="PotionShelf" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+
+[node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_n6s50")]
+layout_mode = 2
