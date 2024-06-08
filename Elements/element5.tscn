@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://vy1mblj3t1n1"]
+
+[ext_resource type="Texture2D" uid="uid://dpon5k6m1xjvr" path="res://Assets/Icon5.png" id="1_hhemr"]
+
+[node name="PotionElement" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_hhemr")
