@@ -6,6 +6,7 @@ public partial class MainMenu : Control
 
 	[Export] public Container mainContainer;
 	[Export] public Container instructionsContainer;
+	[Export] public Container creditsContainer;
 	
 
 	// Called when the node enters the scene tree for the first time.
@@ -30,10 +31,22 @@ public partial class MainMenu : Control
 		instructionsContainer.Visible = true; 
 	}
 
+		public void _on_credits_button_pressed()
+	{
+		mainContainer.Visible = false;
+		creditsContainer.Visible = true; 
+	}
+
 	public void _on_back_button_pressed()
 	{
 		mainContainer.Visible = true;
 		instructionsContainer.Visible = false;
+	}
+
+	public void _on_cred_back_button_pressed()
+	{
+		mainContainer.Visible = true;
+		creditsContainer.Visible = false;
 	}
 
 }

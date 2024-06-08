@@ -1,18 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu3hq3k2so02f"]
+[gd_scene load_steps=9 format=3 uid="uid://cu3hq3k2so02f"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_hje8p"]
 [ext_resource type="Texture2D" uid="uid://c6gagw6tf4box" path="res://Assets/loxd.png" id="1_rhb5l"]
+[ext_resource type="Shader" path="res://Assets/MainMenuScroll.gdshader" id="2_dek1n"]
 [ext_resource type="Texture2D" uid="uid://dqnc2edjdapm3" path="res://Assets/Paper9.png" id="3_5xdaa"]
 [ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="3_hn56x"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_x4oai"]
+[ext_resource type="Texture2D" uid="uid://m3ffmmg4b4mj" path="res://Assets/Background copy.png" id="6_hxsyr"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("mainContainer", "instructionsContainer")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mspnn"]
+shader = ExtResource("2_dek1n")
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("mainContainer", "instructionsContainer", "creditsContainer")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hje8p")
 mainContainer = NodePath("CanvasLayer/MarginContainer")
 instructionsContainer = NodePath("CanvasLayer/MarginContainer2")
+creditsContainer = NodePath("CanvasLayer/MarginContainer3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -1
+z_as_relative = false
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mspnn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_hxsyr")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -49,6 +68,13 @@ size_flags_horizontal = 4
 theme = ExtResource("3_hn56x")
 text = "Instructions"
 
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_hn56x")
+text = "Credits"
+
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
@@ -84,6 +110,9 @@ alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer2/VBoxContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_x4oai")
+theme_override_font_sizes/font_size = 16
 text = "blablabla"
 horizontal_alignment = 1
 
@@ -92,6 +121,54 @@ layout_mode = 2
 theme = ExtResource("3_hn56x")
 text = "Back"
 
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer3"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_5xdaa")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer3/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer3/VBoxContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_x4oai")
+theme_override_font_sizes/font_size = 16
+text = "blablabla"
+horizontal_alignment = 1
+
+[node name="CredBackButton" type="Button" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hn56x")
+text = "Back"
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer3/VBoxContainer/CredBackButton" to="." method="_on_cred_back_button_pressed"]
