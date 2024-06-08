@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Slot.cs" id="1_xbkat"]
 
 [node name="Slot" type="ColorRect"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(60, 60)
 color = Color(0.792063, 0.41231, 0.594045, 1)
 script = ExtResource("1_xbkat")
 

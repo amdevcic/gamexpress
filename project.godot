@@ -15,11 +15,19 @@ run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/show_image=false
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
 [dotnet]
 
 project/assembly_name="Gamexpress"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
