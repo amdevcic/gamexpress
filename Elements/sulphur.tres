@@ -8,4 +8,5 @@ script = ExtResource("2_qjktk")
 elementName = "Sulphur"
 image = ExtResource("1_8ucxo")
 numNeighbors = 0
-points = 10
+points = 80
+tooltip = "Must be next to two oxygen and/or two hydrogen."

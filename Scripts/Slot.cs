@@ -44,10 +44,12 @@ public partial class Slot : ColorRect
 		if (element == null) {
 			this.Element=null;
 			icon.Texture = null;
+            TooltipText = "";
             return;
 		}
 		this.Element = element;
 		icon.Texture = this.Element.image;
+        TooltipText = $"{element.elementName} ({element.points}pts)\n{element.tooltip}";
 	}
 
     public void SetIncorrect() {

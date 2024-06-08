@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://cx0yrcijwgts3"]
+
+[ext_resource type="Texture2D" uid="uid://v0dqn2q7vb7c" path="res://Assets/Icon2.png" id="1_u065o"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_yvlr7"]
+
+[resource]
+script = ExtResource("2_yvlr7")
+elementName = "Chlorine"
+image = ExtResource("1_u065o")
+numNeighbors = 1
+points = 10
+tooltip = "Must have exactly one neighbor."

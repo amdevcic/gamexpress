@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://bedie3qdbgmbt"]
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://bgoh1701h6y7w"]
 
 [ext_resource type="Texture2D" uid="uid://f3v11edddjae" path="res://Assets/Icon4.png" id="1_e6obh"]
 [ext_resource type="Script" path="res://Scripts/Element.cs" id="2_tgmrr"]
@@ -8,4 +8,5 @@ script = ExtResource("2_tgmrr")
 elementName = "Carbon"
 image = ExtResource("1_e6obh")
 numNeighbors = 0
-points = 10
+points = 30
+tooltip = "All carbons must be in the same row or column"
