@@ -1,22 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=8 format=3 uid="uid://gx1wim4ep8yf"]
 
+[ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 [ext_resource type="PackedScene" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
 [ext_resource type="Resource" uid="uid://bedie3qdbgmbt" path="res://Elements/carbon.tres" id="4_oxphb"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_js8ej")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.340771, 0.260127, 0.235991, 1)
+texture = ExtResource("1_h727x")
+stretch_mode = 1
 
 [node name="UI" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
