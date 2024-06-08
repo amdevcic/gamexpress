@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=19 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://bgoh1701h6y7w" path="res://Elements/carbon.tres" id="5_jehs0"]
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
-[ext_resource type="Texture2D" uid="uid://dmcqucyfwedgb" path="res://Assets/Bookshelf copy.png" id="6_yaklw"]
 [ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Elements/chlorine.tres" id="6_rfdun"]
+[ext_resource type="Texture2D" uid="uid://dmcqucyfwedgb" path="res://Assets/Bookshelf copy.png" id="6_yaklw"]
 [ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="7_rkyal"]
 [ext_resource type="Resource" uid="uid://c3hssvv6eex56" path="res://Elements/phosphorus.tres" id="9_npdel"]
 [ext_resource type="Resource" uid="uid://daj5ax48x33kv" path="res://Elements/nitrogen.tres" id="10_a4q47"]
@@ -57,16 +57,17 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 2
+theme_override_constants/separation = 115
 
 [node name="GameTimer" parent="CanvasLayer/UI/HBoxContainer" node_paths=PackedStringArray("cauldronSprite") instance=ExtResource("1_rtgui")]
 layout_mode = 2
 cauldronSprite = NodePath("../VBoxContainer/CauldronNode/Cauldron")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer"]
+custom_minimum_size = Vector2(240.93, 496.17)
 layout_mode = 2
 texture = ExtResource("6_yaklw")
-expand_mode = 3
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer/TextureRect2" instance=ExtResource("1_j0y0x")]
 layout_mode = 2
@@ -74,10 +75,11 @@ anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 74.0
-offset_right = 324.0
-offset_bottom = 680.0
-scale = Vector2(1, 1)
+offset_left = -1.4
+offset_top = 25.945
+offset_right = 248.6
+offset_bottom = 711.165
+scale = Vector2(0.97, 0.99)
 elements = Array[Object]([ExtResource("5_jehs0"), ExtResource("6_rfdun"), ExtResource("5_nq7kf"), ExtResource("9_npdel"), ExtResource("10_a4q47"), ExtResource("11_wjevn"), ExtResource("12_n6brp"), ExtResource("13_e7bis")])
 defaultElement = ExtResource("5_nq7kf")
 
