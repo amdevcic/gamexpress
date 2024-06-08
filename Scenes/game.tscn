@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=7 format=3 uid="uid://gx1wim4ep8yf"]
 
-[ext_resource type="PackedScene" uid="uid://ben7u7o33rnkf" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
+[ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
-[ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
-[ext_resource type="Resource" path="res://Elements/carbon.tres" id="4_oxphb"]
-[ext_resource type="PackedScene" uid="uid://hnqfn5uvc00t" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
+[ext_resource type="PackedScene" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="PackedScene" uid="uid://rvlsd1xgnccy" path="res://Scenes/slot.tscn" id="3_1jgxj"]
+[ext_resource type="Resource" uid="uid://bedie3qdbgmbt" path="res://Elements/carbon.tres" id="4_oxphb"]
+[ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
 [node name="Game" type="Node2D"]
 
@@ -38,11 +39,7 @@ cauldronSprite = NodePath("../VBoxContainer/Cauldron")
 
 [node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_j0y0x")]
 layout_mode = 2
-elements = Array[Object]([])
-
-[node name="Spacer" type="Control" parent="CanvasLayer/UI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+slot = ExtResource("3_1jgxj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
@@ -53,12 +50,16 @@ layout_mode = 2
 element1 = ExtResource("4_oxphb")
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 text = "Evaluate"
 
+[node name="Spacer" type="Control" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
 [node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("5_tix3p")]
-position = Vector2(297, 607)
-scale = Vector2(2.62857, 2.62857)
+position = Vector2(307, 630)
+scale = Vector2(2, 2)
 
 [connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid" method="EvaluateBoard"]

@@ -13,24 +13,17 @@
 
 [node name="PotionShelf" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -190.0
+offset_right = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1)
 script = ExtResource("1_rutof")
-GridContainerPath = NodePath("GridContainer")
 elements = Array[Object]([ExtResource("2_vbwo0"), ExtResource("3_r1uv2"), ExtResource("4_xle5x"), ExtResource("5_g18c8"), ExtResource("6_hv56i"), ExtResource("7_r08vi"), ExtResource("8_ag8xl"), ExtResource("9_j8uqg")])
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_right = 245.0
-offset_bottom = 373.0
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = 6
-columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -38,3 +31,10 @@ offset_right = 120.0
 offset_bottom = 188.0
 scale = Vector2(2, 2)
 texture = ExtResource("3_mn38c")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 235.0
+offset_bottom = 373.0
+columns = 3

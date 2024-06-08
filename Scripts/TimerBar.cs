@@ -11,13 +11,11 @@ public partial class TimerBar : ProgressBar
 	public override void _Ready()
 	{
 		_timer = GetNode<Timer>("Timer");
-		//cauldronSprite = GetNode<Cauldron>("CanvasLayer/UI/HBoxContainer/VBoxContainer/Cauldron");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// GD.Print(_timer.TimeLeft / _timer.WaitTime);
 		this.Value = (float)(_timer.TimeLeft);
 
 		if((_timer.TimeLeft / 100) > 0.6f)
@@ -30,8 +28,6 @@ public partial class TimerBar : ProgressBar
 		{
 			cauldronSprite.ChangeState(3);
 		}
-
-
 	}
 
 

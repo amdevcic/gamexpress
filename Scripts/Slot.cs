@@ -16,6 +16,7 @@ public partial class Slot : ColorRect
 
     public override Variant _GetDragData(Vector2 atPosition)
     {
+        GD.Print("aaa");
 		Variant ret = new DragData(this.Element, this);
 		
 		TextureRect preview = new TextureRect();
