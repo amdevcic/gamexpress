@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://b0mtqi2rwhgj1"]
 
-[ext_resource type="Script" path="res://Scripts/Element.cs" id="1_5p401"]
-[ext_resource type="Texture2D" uid="uid://4muyedya2trt" path="res://Assets/Icon11.png" id="1_px4bi"]
+[ext_resource type="Texture2D" uid="uid://4muyedya2trt" path="res://Assets/Icon11.png" id="1_8ucxo"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_qjktk"]
 
 [resource]
-script = ExtResource("1_5p401")
+script = ExtResource("2_qjktk")
 elementName = "Sulphur"
-image = ExtResource("1_px4bi")
+image = ExtResource("1_8ucxo")
 numNeighbors = 0
-points = 0
+points = 10

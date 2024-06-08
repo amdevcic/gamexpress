@@ -7,6 +7,7 @@ public partial class Game : Node2D
 	[Export] TimerBar bar;
 	GameTimer gameTimer;
 	[Export] Label pointCounter;
+	[Export] PotionShelf potionShelf;
 	int points;
 
     public override void _Ready()
@@ -15,8 +16,12 @@ public partial class Game : Node2D
     }
     public void Evaluate() {
 		int pts = elementGrid.EvaluateBoard();
-		gameTimer.AddTime((double)pts/10);
-		points += pts;
+		if (pts > 0) {
+			gameTimer.AddTime((double)pts/10);
+			points += pts;
+			potionShelf.ClearPotions();
+			potionShelf.Populate();
+		}
 		pointCounter.Text = points.ToString("D10");
 	}
 }

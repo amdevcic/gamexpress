@@ -41,13 +41,17 @@ public partial class ElementGrid : Control
                 int neighbors = CountNeighbors(i, j);
                 // GD.Print($"Slot ({i},{j}) - Element: {elem.elementName}, Neighbors: {neighbors}, Required: {elem.numNeighbors}");
 
-                if ((elem.numNeighbors > 0 && neighbors == elem.numNeighbors) || elem.numNeighbors == 0) {
-                    pts += elem.points*neighbors;
+                // check conditions
+                if (elem.numNeighbors > 0 && neighbors == elem.numNeighbors) {
+                    pts += elem.points;
 					correct.Add(slots[j, i]);
-					GD.Print("correct");
-                } else {
+                } 
+                else if (elem.numNeighbors == 0) {
+                    pts += elem.points * (1+neighbors);
+					correct.Add(slots[j, i]);
+                }
+                else {
 					incorrect.Add(slots[j, i]);
-					GD.Print("incorrect");
 				}
             }
         }
@@ -61,10 +65,9 @@ public partial class ElementGrid : Control
 		else {
 			foreach (Slot s in correct) {
 				s.ClearSlot();
-			}
+			}   
+            GD.Print($"Total Points: {pts}");
 		}
-
-        GD.Print($"Total Points: {pts}");
         return pts;
     }
 
@@ -78,12 +81,7 @@ public partial class ElementGrid : Control
         if (x < width - 1 && slots[y, x + 1].Element != null) { count++; }
         if (y > 0 && slots[y - 1, x].Element != null) { count++; }
         if (y < height - 1 && slots[y + 1, x].Element != null) { count++; }
-
-		// if (x > 0 && slots[y, x - 1].Element != null) { count++; GD.Print($"({x},{y}) has left neighbor"); }
-        // if (x < width - 1 && slots[y, x + 1].Element != null) { count++; GD.Print($"({x},{y}) has right neighbor"); }
-        // if (y > 0 && slots[y - 1, x].Element != null) { count++; GD.Print($"({x},{y}) has top neighbor"); }
-        // if (y < height - 1 && slots[y + 1, x].Element != null) { count++; GD.Print($"({x},{y}) has bottom neighbor"); }
-        // GD.Print($"CountNeighbors({x},{y}) = {count}");
+        
         return count;
     }
 }

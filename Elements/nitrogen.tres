@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://daj5ax48x33kv"]
 
-[ext_resource type="Script" path="res://Scripts/Element.cs" id="1_mupdq"]
-[ext_resource type="Texture2D" uid="uid://dlehx0e4lb2ej" path="res://Assets/Icon7.png" id="1_n3mrs"]
+[ext_resource type="Texture2D" uid="uid://dlehx0e4lb2ej" path="res://Assets/Icon7.png" id="1_puamj"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_bfx0f"]
 
 [resource]
-script = ExtResource("1_mupdq")
+script = ExtResource("2_bfx0f")
 elementName = "Nitrogen"
-image = ExtResource("1_n3mrs")
+image = ExtResource("1_puamj")
 numNeighbors = 0
-points = 0
+points = 10
