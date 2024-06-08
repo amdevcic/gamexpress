@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=10 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 [ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
-[ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
+[ext_resource type="Resource" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
 font_size = 32
+
+[sub_resource type="Curve" id="Curve_iac1t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.54991), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "potionShelf")]
 script = ExtResource("1_js8ej")
@@ -78,5 +82,17 @@ size_flags_vertical = 4
 [node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode" instance=ExtResource("5_tix3p")]
 position = Vector2(250, 50)
 scale = Vector2(2, 2)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode"]
+position = Vector2(206, 50)
+speed_scale = 0.38
+explosiveness = 0.06
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -100)
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_iac1t")
+color = Color(0.317647, 1, 0.313726, 1)
 
 [connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]
