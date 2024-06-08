@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gx1wim4ep8yf"]
 
-[ext_resource type="PackedScene" uid="uid://ben7u7o33rnkf" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
+[ext_resource type="PackedScene" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 
 [node name="Game" type="Node2D"]
