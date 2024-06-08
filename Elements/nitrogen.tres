@@ -7,5 +7,6 @@
 script = ExtResource("2_bfx0f")
 elementName = "Nitrogen"
 image = ExtResource("1_puamj")
-numNeighbors = 0
-points = 10
+numNeighbors = 3
+points = 45
+tooltip = "Must have exactly three neighbors."

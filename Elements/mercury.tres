@@ -8,4 +8,5 @@ script = ExtResource("2_qdfje")
 elementName = "Mercury"
 image = ExtResource("1_qcfh5")
 numNeighbors = 4
-points = 10
+points = 60
+tooltip = "Must have exactly four neighbors."

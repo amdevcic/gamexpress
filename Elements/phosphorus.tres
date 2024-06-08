@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://c3hssvv6eex56"]
+
+[ext_resource type="Texture2D" uid="uid://deyrkbqiyx6c4" path="res://Assets/Icon3.png" id="1_dy7hy"]
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_alqpp"]
+
+[resource]
+script = ExtResource("2_alqpp")
+elementName = "Phosphorus"
+image = ExtResource("1_dy7hy")
+numNeighbors = 4
+points = 60
+tooltip = "Must have exactly four neighbors."

@@ -8,4 +8,5 @@ script = ExtResource("2_tgmrr")
 elementName = "Carbon"
 image = ExtResource("1_e6obh")
 numNeighbors = 0
-points = 10
+points = 30
+tooltip = "All carbons must be in the same row or column"

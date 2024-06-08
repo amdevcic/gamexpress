@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://c2wx88vexbd1s"]
+
+[ext_resource type="Script" path="res://Scripts/Element.cs" id="1_dl3xv"]
+[ext_resource type="Texture2D" uid="uid://dpon5k6m1xjvr" path="res://Assets/Icon5.png" id="1_xyx4j"]
+
+[resource]
+script = ExtResource("1_dl3xv")
+elementName = "Iron"
+image = ExtResource("1_xyx4j")
+numNeighbors = 0
+points = 100
+tooltip = "Must not be next to O or S, must be next to C."

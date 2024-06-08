@@ -7,5 +7,6 @@
 script = ExtResource("2_ai3af")
 elementName = "Oxygen"
 image = ExtResource("1_qtwaa")
-numNeighbors = 0
-points = 10
+numNeighbors = 2
+points = 25
+tooltip = "Must have exactly two neighbors."
