@@ -22,8 +22,6 @@ public partial class ElementGrid : Control
 				slots[i, j] = s as Slot;
 			}
 		}
-		GD.Print(element1.elementName);
-		slots[1, 1].Color = new Color("ff2288");
 		AddElement(element1, 1, 1);
     }
 	public void AddElement(Element element, int x, int y) {
