@@ -9,7 +9,7 @@ public partial class GameTimer : Timer
 	{
 		//WaitTime = (TimeLeft + time);
 		Start(TimeLeft + time);
-		GD.Print("added ", time);
+		GD.Print("added ", time, " seconds.");
 		//Timer.
 	}
 	

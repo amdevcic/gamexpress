@@ -57,8 +57,18 @@ public partial class ElementGrid : Control
                     } else {
                         incorrect.Add(slots[j, i]);
                     }
-                }
-                else if (elem.numNeighbors > 0 && neighbors == elem.numNeighbors) {
+                } else if (elem.elementName == "Iron") {
+                    int oxygenNeighbors = CountSpecificNeighbors(i, j, "Oxygen");
+                    int sulphurNeighbors = CountSpecificNeighbors(i, j, "Sulphur");
+                    int carbonNeighbors = CountSpecificNeighbors(i, j, "Carbon");
+
+                    if (oxygenNeighbors == 0 && sulphurNeighbors == 0 && carbonNeighbors >= 1) {
+                        pts += elem.points;
+                        correct.Add(slots[j, i]);
+                    } else {
+                        incorrect.Add(slots[j, i]);
+                    }
+                } else if (elem.numNeighbors > 0 && neighbors == elem.numNeighbors) {
                     pts += elem.points;
                     correct.Add(slots[j, i]);
                 } 
