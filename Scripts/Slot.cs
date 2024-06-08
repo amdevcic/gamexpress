@@ -33,9 +33,10 @@ public partial class Slot : ColorRect
     }
 
     public void SetElement(Element element) {
-		if (element==null) {
+		if (element == null) {
 			this.Element=null;
 			icon.Texture = null;
+            return;
 		}
 		this.Element = element;
 		icon.Texture = this.Element.image;

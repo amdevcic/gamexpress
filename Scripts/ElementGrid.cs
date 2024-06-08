@@ -13,7 +13,7 @@ public partial class ElementGrid : Control
 
     public override void _Ready()
     {
-        grid = GetNode<GridContainer>("GridContainer");
+        grid = GetNode<GridContainer>("PanelContainer/GridContainer");
 		grid.Columns = width;
 		for (int i=0; i<height; i++) {
 			for (int j=0; j<width; j++) {
