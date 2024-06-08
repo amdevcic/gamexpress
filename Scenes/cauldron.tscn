@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://hnqfn5uvc00t"]
+
+[ext_resource type="Texture2D" uid="uid://b42hofg0p6dpy" path="res://Assets/cauldrongreen1.png" id="1_07y6t"]
+[ext_resource type="Texture2D" uid="uid://bwpg07bn4p6x" path="res://Assets/cauldrongreen2.png" id="2_lp38o"]
+[ext_resource type="Texture2D" uid="uid://dhp8hmsaaw4e2" path="res://Assets/cauldrongreen3.png" id="3_ep14c"]
+[ext_resource type="Texture2D" uid="uid://cgxe6xe6ksvu1" path="res://Assets/cauldronorange1.png" id="4_fh50w"]
+[ext_resource type="Texture2D" uid="uid://nnpcfw37wqjy" path="res://Assets/cauldronorange2.png" id="5_nt83n"]
+[ext_resource type="Texture2D" uid="uid://dpirceyt4skey" path="res://Assets/cauldronorange3.png" id="6_afte4"]
+[ext_resource type="Texture2D" uid="uid://bcycr86q5kqv6" path="res://Assets/cauldronred1.png" id="7_da8un"]
+[ext_resource type="Texture2D" uid="uid://dtoss4jyqhp65" path="res://Assets/cauldronred2.png" id="8_fxtfs"]
+[ext_resource type="Texture2D" uid="uid://7gmytms2w66j" path="res://Assets/cauldronred3.png" id="9_33acu"]
+[ext_resource type="Script" path="res://Scripts/Cauldron.cs" id="10_niy8j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvijk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_07y6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lp38o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ep14c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lp38o")
+}],
+"loop": true,
+"name": &"green",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fh50w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nt83n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_afte4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nt83n")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_da8un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fxtfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_33acu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fxtfs")
+}],
+"loop": true,
+"name": &"red",
+"speed": 6.0
+}]
+
+[node name="Cauldron" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kvijk")
+animation = &"red"
+frame_progress = 0.972973
+script = ExtResource("10_niy8j")
