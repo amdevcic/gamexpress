@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnviskw481g2v"]
+
+[ext_resource type="Script" path="res://Scripts/game_timer.cs" id="1_5m8un"]
+
+[node name="GameTimer" type="ProgressBar"]
+custom_minimum_size = Vector2(20, 0)
+offset_right = 134.0
+offset_bottom = 636.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+fill_mode = 2
+script = ExtResource("1_5m8un")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
+autostart = true
