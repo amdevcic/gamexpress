@@ -41,4 +41,16 @@ public partial class Slot : ColorRect
 		this.Element = element;
 		icon.Texture = this.Element.image;
 	}
+
+    public void SetIncorrect() {
+        Color = new Color("ff000069");
+    }
+    public void ResetColor() {
+        Color = new Color("00000069");
+    }
+
+    public void ClearSlot() {
+        this.Element = null;
+        this.icon.Texture = null;
+    }
 }

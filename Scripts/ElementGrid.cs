@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class ElementGrid : Control
 {
@@ -11,25 +12,6 @@ public partial class ElementGrid : Control
     PackedScene slot;
     [Export]
     Element element1;
-
-    public int EvaluateBoard() {
-        int pts = 0;
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                Element elem = slots[j, i].Element;
-                if (elem == null) continue;
-
-                int neighbors = CountNeighbors(i, j);
-                // GD.Print($"Slot ({i},{j}) - Element: {elem.elementName}, Neighbors: {neighbors}, Required: {elem.numNeighbors}");
-
-                if ((elem.numNeighbors > 0 && neighbors == elem.numNeighbors) || elem.numNeighbors == 0) {
-                    pts += elem.points*neighbors;
-                }
-            }
-        }
-        GD.Print($"Total Points: {pts}");
-        return pts;
-    }
 
     public override void _Ready() {
         grid = GetNode<GridContainer>("PanelContainer/GridContainer");
@@ -44,6 +26,46 @@ public partial class ElementGrid : Control
         AddElement((Element)element1.Duplicate(), 1, 1);
         AddElement((Element)element1.Duplicate(), 1, 2);
         AddElement((Element)element1.Duplicate(), 1, 3);
+    }
+
+    public int EvaluateBoard() {
+        int pts = 0;
+		List<Slot> correct = new List<Slot>();
+		List<Slot> incorrect = new List<Slot>();
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                Element elem = slots[j, i].Element;
+				slots[j,i].ResetColor();
+                if (elem == null) continue;
+
+                int neighbors = CountNeighbors(i, j);
+                // GD.Print($"Slot ({i},{j}) - Element: {elem.elementName}, Neighbors: {neighbors}, Required: {elem.numNeighbors}");
+
+                if ((elem.numNeighbors > 0 && neighbors == elem.numNeighbors) || elem.numNeighbors == 0) {
+                    pts += elem.points*neighbors;
+					correct.Add(slots[j, i]);
+					GD.Print("correct");
+                } else {
+					incorrect.Add(slots[j, i]);
+					GD.Print("incorrect");
+				}
+            }
+        }
+
+		if (incorrect.Count > 0) {
+			pts = 0;
+			foreach (Slot s in incorrect) {
+				s.SetIncorrect();
+			}
+		}
+		else {
+			foreach (Slot s in correct) {
+				s.ClearSlot();
+			}
+		}
+
+        GD.Print($"Total Points: {pts}");
+        return pts;
     }
 
     public void AddElement(Element element, int x, int y) {

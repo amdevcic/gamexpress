@@ -4,13 +4,13 @@ using System;
 public partial class TimerBar : ProgressBar
 {
 	
-	private Timer _timer;
+	public GameTimer _timer;
 	[Export] public Cauldron cauldronSprite;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_timer = GetNode<Timer>("Timer");
+		_timer = GetNode<GameTimer>("Timer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

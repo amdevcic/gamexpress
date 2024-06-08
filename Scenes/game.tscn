@@ -4,12 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
-[ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
-[ext_resource type="Resource" uid="uid://bedie3qdbgmbt" path="res://Elements/carbon.tres" id="4_oxphb"]
+[ext_resource type="PackedScene" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
+font_size = 32
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter")]
 script = ExtResource("1_js8ej")
+elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid")
+bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
+pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/Label")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -47,9 +52,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "0000000000"
+label_settings = SubResource("LabelSettings_j7ps3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("1_n6s50")]
 layout_mode = 2
-element1 = ExtResource("4_oxphb")
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -65,4 +76,4 @@ size_flags_vertical = 4
 position = Vector2(250, 50)
 scale = Vector2(2, 2)
 
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid" method="EvaluateBoard"]
+[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]

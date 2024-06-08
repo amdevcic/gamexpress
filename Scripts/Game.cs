@@ -3,14 +3,20 @@ using System;
 
 public partial class Game : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+	[Export] ElementGrid elementGrid;
+	[Export] TimerBar bar;
+	GameTimer gameTimer;
+	[Export] Label pointCounter;
+	int points;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public override void _Ready()
+    {
+        gameTimer = bar._timer;
+    }
+    public void Evaluate() {
+		int pts = elementGrid.EvaluateBoard();
+		gameTimer.AddTime((double)pts/10);
+		points += pts;
+		pointCounter.Text = points.ToString("D10");
 	}
-
 }
