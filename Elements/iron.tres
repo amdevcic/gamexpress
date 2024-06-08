@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://c2wx88vexbd1s"]
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://b7bmvirjdedbd"]
 
 [ext_resource type="Script" path="res://Scripts/Element.cs" id="1_dl3xv"]
 [ext_resource type="Texture2D" uid="uid://dpon5k6m1xjvr" path="res://Assets/Icon5.png" id="1_xyx4j"]
@@ -11,17 +10,3 @@ image = ExtResource("1_xyx4j")
 numNeighbors = 0
 points = 100
 tooltip = "Must not be next to O or S, must be next to C."
-=======
-[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://dqgt3hpn7gwi0"]
-
-[ext_resource type="Texture2D" uid="uid://bnpnv4oqbhxh" path="res://Assets/Icon10.png" id="1_vdett"]
-[ext_resource type="Script" path="res://Scripts/Element.cs" id="2_tec4j"]
-
-[resource]
-script = ExtResource("2_tec4j")
-elementName = "Iron"
-image = ExtResource("1_vdett")
-numNeighbors = 4
-points = 60
-tooltip = "Must have exactly four neighbors."
->>>>>>> b672db63e2291e4fc48b099041a33b97441dbaf9
