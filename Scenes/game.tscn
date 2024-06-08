@@ -84,14 +84,15 @@ position = Vector2(250, 50)
 scale = Vector2(2, 2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode"]
-position = Vector2(206, 50)
+position = Vector2(257, 39)
+amount = 50
 speed_scale = 0.38
 explosiveness = 0.06
-emission_shape = 1
-emission_sphere_radius = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(100, 20)
 gravity = Vector2(0, -100)
-scale_amount_min = 2.0
-scale_amount_max = 3.0
+scale_amount_min = 5.0
+scale_amount_max = 7.0
 scale_amount_curve = SubResource("Curve_iac1t")
 color = Color(0.317647, 1, 0.313726, 1)
 
