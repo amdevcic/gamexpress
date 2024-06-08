@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dc3onjysnnjvf"]
+
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="1_qd51y"]
+[ext_resource type="Texture2D" uid="uid://cf3pbgtnkmbtd" path="res://Assets/PaperTab.png" id="1_xnapx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6y2vq"]
+texture = ExtResource("1_xnapx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_06gde"]
+texture = ExtResource("1_xnapx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cj737"]
+texture = ExtResource("1_xnapx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[resource]
+default_font = ExtResource("1_qd51y")
+Button/colors/font_color = Color(0.165657, 0.165656, 0.165656, 1)
+Button/font_sizes/font_size = 22
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_6y2vq")
+Button/styles/normal = SubResource("StyleBoxTexture_06gde")
+Button/styles/pressed = SubResource("StyleBoxTexture_cj737")
