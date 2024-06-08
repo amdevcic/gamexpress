@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci7ih1dgf83uj"]
+[gd_scene load_steps=9 format=3 uid="uid://cqmo4k6m1j7ih"]
 
 [ext_resource type="Texture2D" uid="uid://d25yvkc4tl2y0" path="res://Assets/Icon1.png" id="1_k4jsf"]
 [ext_resource type="Texture2D" uid="uid://v0dqn2q7vb7c" path="res://Assets/Icon2.png" id="2_4n8mn"]
@@ -41,4 +41,4 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b73o2")
-frame_progress = 0.184093
+frame_progress = 0.588368

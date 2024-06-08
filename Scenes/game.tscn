@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=12 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
+[ext_resource type="Texture2D" uid="uid://dmcqucyfwedgb" path="res://Assets/Bookshelf copy.png" id="6_yaklw"]
 [ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="7_rkyal"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
@@ -21,7 +22,7 @@ script = ExtResource("1_js8ej")
 elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
 pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/Label")
-potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/PotionShelf")
+potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/PotionShelf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -54,8 +55,22 @@ layout_mode = 2
 layout_mode = 2
 cauldronSprite = NodePath("../VBoxContainer/CauldronNode/Cauldron")
 
-[node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_j0y0x")]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("6_yaklw")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer/TextureRect2" instance=ExtResource("1_j0y0x")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 74.0
+offset_right = 324.0
+offset_bottom = 680.0
+scale = Vector2(1, 1)
 defaultElement = ExtResource("5_nq7kf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
