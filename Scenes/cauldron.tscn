@@ -68,5 +68,5 @@ animations = [{
 [node name="Cauldron" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_kvijk")
 animation = &"red"
-frame_progress = 0.972973
+frame_progress = 0.827096
 script = ExtResource("10_niy8j")

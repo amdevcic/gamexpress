@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=6 format=3 uid="uid://gx1wim4ep8yf"]
 
-[ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
+[ext_resource type="PackedScene" uid="uid://ben7u7o33rnkf" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
-[ext_resource type="PackedScene" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="Resource" path="res://Elements/carbon.tres" id="4_oxphb"]
+[ext_resource type="PackedScene" uid="uid://hnqfn5uvc00t" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
 [node name="Game" type="Node2D"]
 
@@ -30,8 +32,9 @@ theme_override_constants/margin_bottom = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 2
 
-[node name="GameTimer" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_rtgui")]
+[node name="GameTimer" parent="CanvasLayer/UI/HBoxContainer" node_paths=PackedStringArray("cauldronSprite") instance=ExtResource("1_rtgui")]
 layout_mode = 2
+cauldronSprite = NodePath("../VBoxContainer/Cauldron")
 
 [node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer" instance=ExtResource("1_j0y0x")]
 layout_mode = 2
@@ -47,9 +50,15 @@ size_flags_horizontal = 3
 
 [node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("1_n6s50")]
 layout_mode = 2
+element1 = ExtResource("4_oxphb")
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Evaluate"
+
+[node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("5_tix3p")]
+position = Vector2(297, 607)
+scale = Vector2(2.62857, 2.62857)
 
 [connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid" method="EvaluateBoard"]

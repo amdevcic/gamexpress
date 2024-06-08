@@ -24,17 +24,17 @@ public partial class PotionShelf : Node
 
     public void SpawnItem()
     {
-        if (PotionElementScene != null)
-        {
-            var potionElementInstance = PotionElementScene.Instantiate<Control>();
-            potionElementInstance.Set("rect_min_size", new Vector2(32, 32)); // Ensure the size is 32x32
+        // if (PotionElementScene != null)
+        // {
+        //     var potionElementInstance = PotionElementScene.Instantiate<Control>();
+        //     potionElementInstance.Set("rect_min_size", new Vector2(32, 32)); // Ensure the size is 32x32
 
-            _gridContainer.AddChild(potionElementInstance);
-        }
-        else
-        {
-            GD.PrintErr("PotionElementScene is not set.");
-        }
+        //     _gridContainer.AddChild(potionElementInstance);
+        // }
+        // else
+        // {
+        //     GD.PrintErr("PotionElementScene is not set.");
+        // }
     }
 
     // Optional: Call SpawnItem() for testing via input

@@ -8,14 +8,14 @@ public partial class ShelfItem : Control
         return this.Element == null;
     }
 
-    public override Variant _GetDragData(Vector2 atPosition)
-    {
-		Variant ret = new DragData(this.Element, this);
+    // public override Variant _GetDragData(Vector2 atPosition)
+    // {
+	// 	Variant ret = new DragData(this.Element, this);
 		
-		TextureRect preview = new TextureRect();
-		preview.Texture = icon.Texture;
-		SetDragPreview(preview);
+	// 	TextureRect preview = new TextureRect();
+	// 	preview.Texture = icon.Texture;
+	// 	SetDragPreview(preview);
 
-        return ret;
-    }
+    //     return ret;
+    // }
 }
