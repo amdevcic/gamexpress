@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
-[ext_resource type="PackedScene" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 
