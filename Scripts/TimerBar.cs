@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class game_timer : ProgressBar
+public partial class TimerBar : ProgressBar
 {
 	
 	private Timer _timer;
