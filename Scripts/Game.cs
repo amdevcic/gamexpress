@@ -26,7 +26,7 @@ public partial class Game : Node2D
     public void Evaluate() {
 		int pts = elementGrid.EvaluateBoard();
 		if (pts > 0) {
-			gameTimer.AddTime((double)pts/10);
+			gameTimer.AddTime((double)pts/15);
 			points += pts;
 			potionShelf.ClearPotions();
 			potionShelf.Populate();
@@ -39,7 +39,7 @@ public partial class Game : Node2D
 	private async void newPointAlert(int points)
 	{
 		newPointLabel.Text = points + " points!";
-		await Task.Delay(3000);
+		await Task.Delay(2000);
 		newPointLabel.Text = "";
 	}
 }

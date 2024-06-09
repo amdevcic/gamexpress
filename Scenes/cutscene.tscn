@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0pp1q4umndpe"]
+[gd_scene load_steps=10 format=3 uid="uid://stfrp7uskp83"]
 
 [ext_resource type="Texture2D" uid="uid://bl57xe36ux2j1" path="res://Assets/backgroundpane.png" id="1_mwvwd"]
 [ext_resource type="Script" path="res://Scripts/cutscene.cs" id="1_wkfbd"]
@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://ondjldp7lrie" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cursor 1 (Saw).mp3" id="6_0i8jm"]
 [ext_resource type="AudioStream" uid="uid://codvhsn1hpr31" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cancel 2 (Square).mp3" id="7_fi6u4"]
 [ext_resource type="AudioStream" uid="uid://dqef7o0orquxx" path="res://Audio/18_Thunder_02.mp3" id="8_6gudh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_md4ra"]
+font = ExtResource("4_xnom0")
 
 [node name="Cutscene" type="Node2D" node_paths=PackedStringArray("voice1", "voice2", "boom")]
 script = ExtResource("1_wkfbd")
@@ -94,6 +97,18 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_xnom0")
 theme_override_font_sizes/font_size = 45
 autowrap_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 24.0
+offset_right = -25.0
+offset_bottom = 47.0
+grow_horizontal = 0
+text = "click to advance..."
+label_settings = SubResource("LabelSettings_md4ra")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
