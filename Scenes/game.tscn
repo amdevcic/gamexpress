@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=24 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -18,10 +18,12 @@
 [ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="11_wjevn"]
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="12_n6brp"]
 [ext_resource type="Resource" uid="uid://b7bmvirjdedbd" path="res://Elements/iron.tres" id="13_e7bis"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="14_jwne2"]
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
 [ext_resource type="Script" path="res://Scripts/BubbleTextureChanger.cs" id="18_lofsh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
+font = ExtResource("14_jwne2")
 font_size = 32
 
 [sub_resource type="Curve" id="Curve_iac1t"]
@@ -95,7 +97,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "0000000000"
+text = "0"
 label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -131,7 +133,6 @@ texture = ExtResource("17_iifr2")
 emission_shape = 3
 emission_rect_extents = Vector2(100, 20)
 gravity = Vector2(0, -100)
-initial_velocity_max = 39.22
 scale_amount_min = 2.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_iac1t")

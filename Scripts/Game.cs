@@ -22,6 +22,6 @@ public partial class Game : Node2D
 			potionShelf.ClearPotions();
 			potionShelf.Populate();
 		}
-		pointCounter.Text = points.ToString("D10");
+		pointCounter.Text = points.ToString();
 	}
 }

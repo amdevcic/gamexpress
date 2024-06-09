@@ -2,12 +2,9 @@ using Godot;
 using System;
 
 public partial class BubbleTextureChanger : CpuParticles2D
-{
-
-
-	[Export] public CompressedTexture2D bubbleTex1;
-	[Export] public CompressedTexture2D bubbleTex2;
-	[Export] public CompressedTexture2D bubbleTex3;
+{	[Export] public Texture2D bubbleTex1;
+	[Export] public Texture2D bubbleTex2;
+	[Export] public Texture2D bubbleTex3;
 
 	private int state = 1;
 
