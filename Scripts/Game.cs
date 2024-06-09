@@ -30,5 +30,6 @@ public partial class Game : Node2D
 			potionShelf.Populate();
 		}
 		pointCounter.Text = points.ToString();
+		global_vars.score = points;
 	}
 }

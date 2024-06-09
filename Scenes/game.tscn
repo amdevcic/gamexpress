@@ -216,11 +216,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode" instance=ExtResource("5_tix3p")]
-position = Vector2(250, 50)
+position = Vector2(249, 61)
 scale = Vector2(2, 2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode"]
-position = Vector2(257, 36.745)
+position = Vector2(257, 45.865)
 scale = Vector2(1.065, 1.065)
 amount = 10
 speed_scale = 0.38
@@ -232,7 +232,6 @@ gravity = Vector2(0, -100)
 scale_amount_min = 2.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_iac1t")
-color = Color(0.317647, 1, 0.313726, 1)
 script = ExtResource("18_lofsh")
 bubbleTex1 = ExtResource("17_iifr2")
 bubbleTex2 = ExtResource("5_hm25v")
@@ -246,6 +245,7 @@ volume_db = -9.156
 
 [node name="BottlePlace" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("27_em1wc")
+volume_db = 12.428
 
 [node name="success" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("28_uwyob")

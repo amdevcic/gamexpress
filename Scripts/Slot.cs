@@ -5,9 +5,12 @@ public partial class Slot : ColorRect
 {
 	public Element Element;
 	public TextureRect icon;
+
+    public AudioStreamPlayer2D placeSound;
     public override void _Ready()
     {
         icon = GetNode<TextureRect>("Icon");
+        placeSound = GetNode<AudioStreamPlayer2D>("AudioManager/BottlePlace");
     }
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
@@ -32,11 +35,13 @@ public partial class Slot : ColorRect
             // If this slot is empty, just move the element here
             SetElement(d.element);
             d.parent.SetElement(null);
+            placeSound.Play();
         } else {
             // If this slot has an element, swap the elements
             Element tempElement = this.Element;
             SetElement(d.element);
             d.parent.SetElement(tempElement);
+            placeSound.Play();
         }
     }
 

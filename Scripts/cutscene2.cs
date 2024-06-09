@@ -72,6 +72,10 @@ public partial class cutscene2 : Node2D
 				text.Text = "Oops.";
 				break;
 			case 4:
+				portrait.Texture = null;
+				text.Text = "SCORE: " + global_vars.score.ToString();
+				break;
+			case 5:
 				GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
 				break;
 			default:
