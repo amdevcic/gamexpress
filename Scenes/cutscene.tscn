@@ -28,6 +28,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,3 +110,5 @@ stream = ExtResource("7_fi6u4")
 [node name="Boom" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("8_6gudh")
 volume_db = 4.579
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

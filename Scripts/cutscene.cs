@@ -9,6 +9,7 @@ public partial class cutscene : Node2D
 	private TextureRect portrait;
 	private Label text;
 	private int currentLine = 1;
+	private bool loaded = false;
 
 	[Export] public Texture2D portrait1;
 	[Export] public Texture2D portrait2;
@@ -29,29 +30,37 @@ public partial class cutscene : Node2D
 		textbox = GetNode<HBoxContainer>("CanvasLayer/HBoxContainer");
 		portrait = GetNode<TextureRect>("CanvasLayer/HBoxContainer/NinePatchRect/MarginContainer/TextureRect");
 		text = GetNode<Label>("CanvasLayer/HBoxContainer/NinePatchRect2/MarginContainer/Label");
-
-		AdvanceText(currentLine);
-		currentLine += 1;
 	}
 
 	public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.Pressed)
-            {
-                AdvanceText(currentLine);
-				currentLine += 1;
-            }
-        } else if (@event is InputEventMouseButton eventMouseButton)
-        {
-            if (eventMouseButton.Pressed)
-            {
-                AdvanceText(currentLine);
-				currentLine += 1;
-            }
-        }
+		if (loaded)
+		{
+			if (@event is InputEventKey eventKey)
+			{
+				if (eventKey.Pressed)
+				{
+					AdvanceText(currentLine);
+					currentLine += 1;
+				}
+			} else if (@event is InputEventMouseButton eventMouseButton)
+			{
+				if (eventMouseButton.Pressed)
+				{
+					AdvanceText(currentLine);
+					currentLine += 1;
+				}
+			}
+		}
     }
+
+	private void _on_timer_timeout() 
+	{
+		textbox.Visible = true;
+		AdvanceText(currentLine);
+		currentLine += 1;
+		loaded = true;
+	}
 
 	private void AdvanceText(int line)
 	{
