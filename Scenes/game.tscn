@@ -263,7 +263,7 @@ volume_db = -9.156
 
 [node name="BottlePlace" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("27_em1wc")
-volume_db = 12.428
+volume_db = 13.866
 
 [node name="success" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("28_uwyob")
