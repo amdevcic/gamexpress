@@ -1,10 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cu3hq3k2so02f"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_hje8p"]
-[ext_resource type="Texture2D" uid="uid://c6gagw6tf4box" path="res://Assets/loxd.png" id="1_rhb5l"]
 [ext_resource type="Shader" path="res://Assets/MainMenuScroll.gdshader" id="2_dek1n"]
 [ext_resource type="Texture2D" uid="uid://dqnc2edjdapm3" path="res://Assets/Paper9.png" id="3_5xdaa"]
-[ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="3_hn56x"]
+[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://Assets/gameTheme.tres" id="3_hn56x"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_x4oai"]
 [ext_resource type="Texture2D" uid="uid://m3ffmmg4b4mj" path="res://Assets/Background copy.png" id="6_hxsyr"]
 [ext_resource type="Script" path="res://Scripts/MainMenuAudio.cs" id="8_su2sf"]
@@ -13,6 +12,17 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mspnn"]
 shader = ExtResource("2_dek1n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2xpa"]
+line_spacing = -15.0
+font = ExtResource("4_x4oai")
+font_size = 60
+font_color = Color(0.87636, 0.67511, 0.421761, 1)
+outline_size = 19
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 9.435)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("mainContainer", "instructionsContainer", "creditsContainer")]
 layout_mode = 3
@@ -52,10 +62,12 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_rhb5l")
-stretch_mode = 3
+text = "ALCHE
+MISSED"
+label_settings = SubResource("LabelSettings_l2xpa")
+horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
@@ -116,8 +128,15 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_x4oai")
 theme_override_font_sizes/font_size = 16
-text = "blabla"
+text = "Instructions:
+
+You are an apprentice alchemist and you just destabilized your master's potion! Mix elements to stabilize it before the time runs out and get as many points as you can.
+
+Drag elements from the shelf onto the grid and click \"Mix!\" when you're done. But watch out, each element can only be mixed under certain conditions!
+
+Hover over an element to see its rules."
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
 layout_mode = 2

@@ -61,7 +61,7 @@ public partial class Slot : ColorRect
         Color = new Color("ff000069");
     }
     public void ResetColor() {
-        Color = new Color("00000069");
+        Color = new Color("00000000");
     }
 
     public void ClearSlot() {
