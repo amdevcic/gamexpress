@@ -116,7 +116,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_x4oai")
 theme_override_font_sizes/font_size = 16
-text = "blablabla"
+text = "blabla"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
@@ -162,7 +162,21 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_x4oai")
 theme_override_font_sizes/font_size = 16
-text = "blablabla"
+text = "Assets credits:
+
+	DatIndie -> Portraits
+	Daymarius -> Font
+	edermuniz -> Forest background
+	 JDSherbert -> Sound effects
+	Leohpaz -> Sound effects
+	Craftpix.net -> Element icons
+	Pixabay -> Sound effects
+	OGsoundFX -> Sound effects
+	UNIVERSFIELD -> Sound effects and music
+	CogFireStudios -> Sound effects
+	unfa -> Sound effects
+	geoffharvey -> Music
+	"
 horizontal_alignment = 1
 
 [node name="CredBackButton" type="Button" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
