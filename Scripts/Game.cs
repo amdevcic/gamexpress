@@ -38,7 +38,9 @@ public partial class Game : Node2D
 
 	private async void newPointAlert(int points)
 	{
-		newPointLabel.Text = points + " points!";
+		if(points != 0){
+			newPointLabel.Text = points + " points!";
+		}
 		await Task.Delay(3000);
 		newPointLabel.Text = "";
 	}
