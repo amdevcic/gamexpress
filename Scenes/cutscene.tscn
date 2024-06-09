@@ -86,7 +86,6 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_xnom0")
 theme_override_font_sizes/font_size = 45
-text = "Test Text"
 autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="."]

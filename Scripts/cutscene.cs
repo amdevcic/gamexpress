@@ -8,7 +8,7 @@ public partial class cutscene : Node2D
 	private HBoxContainer textbox;
 	private TextureRect portrait;
 	private Label text;
-	private int currentLine = 0;
+	private int currentLine = 1;
 
 	[Export] public Texture2D portrait1;
 	[Export] public Texture2D portrait2;
@@ -22,18 +22,33 @@ public partial class cutscene : Node2D
 		textbox = GetNode<HBoxContainer>("CanvasLayer/HBoxContainer");
 		portrait = GetNode<TextureRect>("CanvasLayer/HBoxContainer/NinePatchRect/MarginContainer/TextureRect");
 		text = GetNode<Label>("CanvasLayer/HBoxContainer/NinePatchRect2/MarginContainer/Label");
+
+		AdvanceText(currentLine);
+		currentLine += 1;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override async void _Process(double delta)
-	{
-		if(Input.IsAnythingPressed())
-		{
-			AdvanceText(currentLine);
-			currentLine += 1;
-			await ToSignal(GetTree().CreateTimer(0.2f), SceneTreeTimer.SignalName.Timeout);
-		}
-	}
+	// // Called every frame. 'delta' is the elapsed time since the previous frame.
+	// public override async void _Process(double delta)
+	// {
+	// 	// if(Input.IsAnythingPressed())
+	// 	// {
+	// 	// 	AdvanceText(currentLine);
+	// 	// 	currentLine += 1;
+	// 	// 	await ToSignal(GetTree().CreateTimer(0.2f), SceneTreeTimer.SignalName.Timeout);
+	// 	// }
+	// }
+
+	public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventKey eventKey)
+        {
+            if (eventKey.Pressed)
+            {
+                AdvanceText(currentLine);
+				currentLine += 1;
+            }
+        }
+    }
 
 	private void AdvanceText(int line)
 	{
