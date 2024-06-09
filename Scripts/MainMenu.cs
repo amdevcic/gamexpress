@@ -22,7 +22,7 @@ public partial class MainMenu : Control
 	public void _on_play_button_pressed()
 	{
 		GD.Print("play pressed");
-		GetTree().ChangeSceneToFile("res://Scenes/game.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/cutscene.tscn");
 	}
 
 	public void _on_instructions_button_pressed()

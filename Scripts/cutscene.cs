@@ -47,6 +47,13 @@ public partial class cutscene : Node2D
                 AdvanceText(currentLine);
 				currentLine += 1;
             }
+        } else if (@event is InputEventMouseButton eventMouseButton)
+        {
+            if (eventMouseButton.Pressed)
+            {
+                AdvanceText(currentLine);
+				currentLine += 1;
+            }
         }
     }
 
