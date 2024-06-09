@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=26 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 [ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="Texture2D" uid="uid://c5xc15mehoodu" path="res://Assets/Vignette_(SuperTux).png" id="3_lkqjf"]
 [ext_resource type="Texture2D" uid="uid://bn1d3h0hm54hc" path="res://Assets/bubbleorange.png" id="5_hm25v"]
 [ext_resource type="Resource" uid="uid://bgoh1701h6y7w" path="res://Elements/carbon.tres" id="5_jehs0"]
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
@@ -19,12 +20,15 @@
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="12_n6brp"]
 [ext_resource type="Resource" uid="uid://b7bmvirjdedbd" path="res://Elements/iron.tres" id="13_e7bis"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="14_jwne2"]
+[ext_resource type="Texture2D" uid="uid://cg3mnvxqaha5h" path="res://Assets/Carved_3Slides.png" id="15_8icgp"]
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
 [ext_resource type="Script" path="res://Scripts/BubbleTextureChanger.cs" id="18_lofsh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
 font = ExtResource("14_jwne2")
 font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3.785, 2.475)
 
 [sub_resource type="Curve" id="Curve_iac1t"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.54991), 0.0, 0.0, 0, 0]
@@ -34,7 +38,7 @@ point_count = 2
 script = ExtResource("1_js8ej")
 elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
-pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/Label")
+pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/Label")
 potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/PotionShelf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -49,6 +53,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_h727x")
 stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lkqjf")
+expand_mode = 1
 
 [node name="UI" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -91,16 +105,42 @@ scale = Vector2(0.97, 0.99)
 elements = Array[Object]([ExtResource("5_jehs0"), ExtResource("6_rfdun"), ExtResource("5_nq7kf"), ExtResource("9_npdel"), ExtResource("10_a4q47"), ExtResource("11_wjevn"), ExtResource("12_n6brp"), ExtResource("13_e7bis")])
 defaultElement = ExtResource("5_nq7kf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.465
+offset_top = 21.0
+offset_right = 130.535
+offset_bottom = 115.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("15_8icgp")
+expand_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -22.0
+offset_right = 70.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "0"
 label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("1_n6s50")]
 layout_mode = 2
