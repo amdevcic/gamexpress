@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://hg4wwhsoo7jd" path="res://Assets/portrait2.png" id="2_s71po"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_xnom0"]
 
-[node name="Cutscene" type="Node2D"]
+[node name="Cutscene" type="Node2D" node_paths=PackedStringArray("voice1", "voice2", "boom")]
 script = ExtResource("1_wkfbd")
 portrait1 = ExtResource("2_7qpyl")
 portrait2 = ExtResource("2_s71po")
+voice1 = NodePath("AudioManager/Dialogue1")
+voice2 = NodePath("AudioManager/Dialogue2")
+boom = NodePath("AudioManager/Boom")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -91,3 +94,11 @@ autowrap_mode = 3
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="Dialogue1" type="AudioStreamPlayer2D" parent="AudioManager"]
+
+[node name="Dialogue2" type="AudioStreamPlayer2D" parent="AudioManager"]
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="AudioManager"]

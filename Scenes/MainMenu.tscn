@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu3hq3k2so02f"]
+[gd_scene load_steps=12 format=3 uid="uid://cu3hq3k2so02f"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_hje8p"]
 [ext_resource type="Texture2D" uid="uid://c6gagw6tf4box" path="res://Assets/loxd.png" id="1_rhb5l"]
@@ -7,6 +7,9 @@
 [ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="3_hn56x"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_x4oai"]
 [ext_resource type="Texture2D" uid="uid://m3ffmmg4b4mj" path="res://Assets/Background copy.png" id="6_hxsyr"]
+[ext_resource type="Script" path="res://Scripts/MainMenuAudio.cs" id="8_su2sf"]
+[ext_resource type="AudioStream" uid="uid://byp6c61s18acd" path="res://Audio/mainmenu.mp3" id="9_rdi0e"]
+[ext_resource type="AudioStream" uid="uid://csxdryodokibt" path="res://Audio/buttonPressed.mp3" id="10_x2uvy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mspnn"]
 shader = ExtResource("2_dek1n")
@@ -167,8 +170,22 @@ layout_mode = 2
 theme = ExtResource("3_hn56x")
 text = "Back"
 
+[node name="SoundContainer" type="Node" parent="."]
+script = ExtResource("8_su2sf")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="SoundContainer"]
+stream = ExtResource("9_rdi0e")
+
+[node name="ButtonS" type="AudioStreamPlayer2D" parent="SoundContainer"]
+stream = ExtResource("10_x2uvy")
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="SoundContainer" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/InstructionsButton" to="SoundContainer" method="_on_instructions_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="SoundContainer" method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/BackButton" to="SoundContainer" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer3/VBoxContainer/CredBackButton" to="." method="_on_cred_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer3/VBoxContainer/CredBackButton" to="SoundContainer" method="_on_cred_back_button_pressed"]

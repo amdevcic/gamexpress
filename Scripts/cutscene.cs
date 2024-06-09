@@ -13,6 +13,13 @@ public partial class cutscene : Node2D
 	[Export] public Texture2D portrait1;
 	[Export] public Texture2D portrait2;
 
+	[ExportGroup("audio")]
+	[Export] AudioStreamPlayer2D voice1;
+	[Export] AudioStreamPlayer2D voice2;
+	[Export] AudioStreamPlayer2D boom;
+	
+
+
 	
 
 	// Called when the node enters the scene tree for the first time.
@@ -26,17 +33,6 @@ public partial class cutscene : Node2D
 		AdvanceText(currentLine);
 		currentLine += 1;
 	}
-
-	// // Called every frame. 'delta' is the elapsed time since the previous frame.
-	// public override async void _Process(double delta)
-	// {
-	// 	// if(Input.IsAnythingPressed())
-	// 	// {
-	// 	// 	AdvanceText(currentLine);
-	// 	// 	currentLine += 1;
-	// 	// 	await ToSignal(GetTree().CreateTimer(0.2f), SceneTreeTimer.SignalName.Timeout);
-	// 	// }
-	// }
 
 	public override void _Input(InputEvent @event)
     {
@@ -63,13 +59,16 @@ public partial class cutscene : Node2D
 		{
 			case 1:
 				text.Text ="Apprentice. I'm going out.";
+				voice2.Play();
 				break;
 			case 2:
 				text.Text = "Don't touch anything.";
+				voice2.Play();
 				break;
 			case 3:
 				portrait.Texture = portrait1;
 				text.Text = "Yes, grand master alchemist!";
+				voice1.Play();
 				break;
 			case 4:
 				textbox.Visible = false;
@@ -77,17 +76,21 @@ public partial class cutscene : Node2D
 			case 5:
 				textbox.Visible = true;
 				text.Text = "I'm sure nothing will happen if I just...";
+				voice1.Play();
 				break;
 			case 6:
 				textbox.Visible = false;
+				boom.Play();
 				break;
 			case 7:
 				textbox.Visible = true;
+				voice1.Play();
 				text.Text = "Oh no.";
 				break;
 			case 8:
 				textbox.Visible = true;
 				text.Text = "Um... I'm sure I can stabilize it somehow!";
+				voice1.Play();
 				break;
 			case 9:
 				GetTree().ChangeSceneToFile("res://Scenes/game.tscn");
