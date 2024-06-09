@@ -10,7 +10,7 @@ public partial class Slot : ColorRect
     public override void _Ready()
     {
         icon = GetNode<TextureRect>("Icon");
-        placeSound = GetNode<AudioStreamPlayer2D>("AudioManager/BottlePlace");
+        placeSound = GetNode<AudioStreamPlayer2D>("/Game/AudioManager/BottlePlace");
     }
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {

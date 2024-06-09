@@ -42,11 +42,12 @@ shadow_offset = Vector2(3.785, 2.475)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.54991), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "potionShelf")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "newPointLabel", "potionShelf")]
 script = ExtResource("1_js8ej")
 elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/TextureRect/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
 pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/Label")
+newPointLabel = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/newPointLabel")
 potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/PotionShelf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -179,6 +180,23 @@ label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="newPointLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.5
+offset_top = 0.354996
+offset_right = 70.5
+offset_bottom = 44.355
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_j7ps3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -207,7 +225,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_rkyal")
-text = "Evaluate"
+text = "Mix!"
 
 [node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)

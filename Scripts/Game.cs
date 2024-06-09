@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class Game : Node2D
 {
@@ -7,6 +8,7 @@ public partial class Game : Node2D
 	[Export] TimerBar bar;
 	GameTimer gameTimer;
 	[Export] Label pointCounter;
+	[Export] Label newPointLabel;
 	[Export] PotionShelf potionShelf;
 	int points;
 
@@ -30,6 +32,14 @@ public partial class Game : Node2D
 			potionShelf.Populate();
 		}
 		pointCounter.Text = points.ToString();
+		newPointAlert(pts);
 		global_vars.score = points;
+	}
+
+	private async void newPointAlert(int points)
+	{
+		newPointLabel.Text = points + " points!";
+		await Task.Delay(3000);
+		newPointLabel.Text = "";
 	}
 }
