@@ -5,7 +5,6 @@ public partial class Slot : ColorRect
 {
 	public Element Element;
 	public TextureRect icon;
-
     public AudioStreamPlayer2D placeSound;
     public override void _Ready()
     {
