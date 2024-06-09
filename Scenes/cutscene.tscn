@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://0pp1q4umndpe"]
+[gd_scene load_steps=9 format=3 uid="uid://0pp1q4umndpe"]
 
 [ext_resource type="Texture2D" uid="uid://bl57xe36ux2j1" path="res://Assets/backgroundpane.png" id="1_mwvwd"]
 [ext_resource type="Script" path="res://Scripts/cutscene.cs" id="1_wkfbd"]
 [ext_resource type="Texture2D" uid="uid://15d4fjn55gcu" path="res://Assets/portrait1.png" id="2_7qpyl"]
 [ext_resource type="Texture2D" uid="uid://hg4wwhsoo7jd" path="res://Assets/portrait2.png" id="2_s71po"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_xnom0"]
+[ext_resource type="AudioStream" uid="uid://ondjldp7lrie" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cursor 1 (Saw).mp3" id="6_0i8jm"]
+[ext_resource type="AudioStream" uid="uid://codvhsn1hpr31" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cancel 2 (Square).mp3" id="7_fi6u4"]
+[ext_resource type="AudioStream" uid="uid://dqef7o0orquxx" path="res://Audio/18_Thunder_02.mp3" id="8_6gudh"]
 
 [node name="Cutscene" type="Node2D" node_paths=PackedStringArray("voice1", "voice2", "boom")]
 script = ExtResource("1_wkfbd")
@@ -98,7 +101,11 @@ autostart = true
 [node name="AudioManager" type="Node" parent="."]
 
 [node name="Dialogue1" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("6_0i8jm")
 
 [node name="Dialogue2" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("7_fi6u4")
 
 [node name="Boom" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("8_6gudh")
+volume_db = 4.579
