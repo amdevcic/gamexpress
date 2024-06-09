@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnviskw481g2v"]
+[gd_scene load_steps=7 format=3 uid="uid://cnviskw481g2v"]
 
 [ext_resource type="Script" path="res://Scripts/TimerBar.cs" id="1_5rxhj"]
 [ext_resource type="Script" path="res://Scripts/GameTimer.cs" id="2_rwi5o"]
 [ext_resource type="Texture2D" uid="uid://bn7dsrgwfwxcg" path="res://Assets/Settings_Bar03.png" id="3_7bvxp"]
 [ext_resource type="Texture2D" uid="uid://dyx77e7if6emq" path="res://Assets/Settings.png" id="4_fw6xt"]
 [ext_resource type="Texture2D" uid="uid://76b8usdeytw" path="res://Assets/Settings_Bar01.png" id="5_4b6js"]
+[ext_resource type="AudioStream" uid="uid://cp75uo7lgux8g" path="res://Audio/timer.mp3" id="6_m87rb"]
 
 [node name="GameTimer" type="TextureProgressBar"]
 custom_minimum_size = Vector2(20, 0)
@@ -27,3 +28,12 @@ wait_time = 100.0
 one_shot = true
 autostart = true
 script = ExtResource("2_rwi5o")
+
+[node name="Alert" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_m87rb")
+volume_db = 1.308
+
+[node name="SoundTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]

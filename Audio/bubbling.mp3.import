@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/bubbling.mp3-e89d8a687e98f2def51fa94353a95750
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

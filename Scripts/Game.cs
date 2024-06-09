@@ -10,9 +10,16 @@ public partial class Game : Node2D
 	[Export] PotionShelf potionShelf;
 	int points;
 
+	public AudioStreamPlayer2D music;
+	public AudioStreamPlayer2D bubbles;
+
     public override void _Ready()
     {
         gameTimer = bar._timer;
+		music = GetNode<AudioStreamPlayer2D>("AudioManager/Music");
+		bubbles = GetNode<AudioStreamPlayer2D>("AudioManager/Bubbling");
+		music.Play();
+		bubbles.Play();
     }
     public void Evaluate() {
 		int pts = elementGrid.EvaluateBoard();

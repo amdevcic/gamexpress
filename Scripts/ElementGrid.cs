@@ -13,6 +13,9 @@ public partial class ElementGrid : Control
     PackedScene slot;
     [Export]
     Element element1;
+    [Export] public AudioStreamPlayer2D good;
+    [Export] public AudioStreamPlayer2D bad;
+    [Export] public AudioStreamPlayer2D splash;
 
     public override void _Ready() {
         grid = GetNode<GridContainer>("PanelContainer/GridContainer");
@@ -114,10 +117,13 @@ public partial class ElementGrid : Control
 
         if (incorrect.Count > 0) {
             pts = 0;
+            bad.Play();
             foreach (Slot s in incorrect) {
                 s.SetIncorrect();
             }
         } else {
+            good.Play();
+            splash.Play();
             foreach (Slot s in correct) {
                 s.ClearSlot();
             }   

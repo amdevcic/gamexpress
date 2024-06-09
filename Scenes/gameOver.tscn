@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvoi5ckwumixm"]
+
+[ext_resource type="Script" path="res://Scripts/cutscene2.cs" id="1_84fhw"]
+[ext_resource type="Texture2D" uid="uid://15d4fjn55gcu" path="res://Assets/portrait1.png" id="2_kb6yh"]
+[ext_resource type="Texture2D" uid="uid://hg4wwhsoo7jd" path="res://Assets/portrait2.png" id="3_qudds"]
+[ext_resource type="Texture2D" uid="uid://bl57xe36ux2j1" path="res://Assets/backgroundpane.png" id="4_rqulw"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="5_cpgvl"]
+[ext_resource type="AudioStream" uid="uid://ondjldp7lrie" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cursor 1 (Saw).mp3" id="6_2r6mm"]
+[ext_resource type="AudioStream" uid="uid://codvhsn1hpr31" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cancel 2 (Square).mp3" id="7_y2cxa"]
+[ext_resource type="AudioStream" uid="uid://dqef7o0orquxx" path="res://Audio/18_Thunder_02.mp3" id="8_4j56r"]
+
+[node name="GameOver" type="Node2D" node_paths=PackedStringArray("voice1", "voice2", "boom")]
+script = ExtResource("1_84fhw")
+portrait1 = ExtResource("2_kb6yh")
+portrait2 = ExtResource("3_qudds")
+voice1 = NodePath("AudioManager/Dialogue1")
+voice2 = NodePath("AudioManager/Dialogue2")
+boom = NodePath("AudioManager/Boom")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 472.0
+offset_right = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("4_rqulw")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_qudds")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(900, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("4_rqulw")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/NinePatchRect2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("5_cpgvl")
+theme_override_font_sizes/font_size = 45
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="Dialogue1" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("6_2r6mm")
+
+[node name="Dialogue2" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("7_y2cxa")
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("8_4j56r")
+volume_db = 4.579
