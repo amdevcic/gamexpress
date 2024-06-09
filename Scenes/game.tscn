@@ -1,18 +1,19 @@
-[gd_scene load_steps=26 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=28 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_js8ej"]
 [ext_resource type="PackedScene" uid="uid://bgfowtnmx2qfu" path="res://Scenes/element_grid.tscn" id="1_n6s50"]
 [ext_resource type="PackedScene" uid="uid://cnviskw481g2v" path="res://Scenes/game_timer.tscn" id="1_rtgui"]
+[ext_resource type="Texture2D" uid="uid://bl57xe36ux2j1" path="res://Assets/backgroundpane.png" id="2_qpxrg"]
 [ext_resource type="Texture2D" uid="uid://c5xc15mehoodu" path="res://Assets/Vignette_(SuperTux).png" id="3_lkqjf"]
 [ext_resource type="Texture2D" uid="uid://bn1d3h0hm54hc" path="res://Assets/bubbleorange.png" id="5_hm25v"]
 [ext_resource type="Resource" uid="uid://bgoh1701h6y7w" path="res://Elements/carbon.tres" id="5_jehs0"]
+[ext_resource type="Texture2D" uid="uid://chlesd34wfsux" path="res://Assets/newshelf.png" id="5_mdepf"]
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 [ext_resource type="Texture2D" uid="uid://dnubx4fne2qy3" path="res://Assets/bubblered.png" id="6_pkpic"]
 [ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Elements/chlorine.tres" id="6_rfdun"]
-[ext_resource type="Texture2D" uid="uid://dmcqucyfwedgb" path="res://Assets/Bookshelf copy.png" id="6_yaklw"]
 [ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="7_rkyal"]
 [ext_resource type="Resource" uid="uid://c3hssvv6eex56" path="res://Elements/phosphorus.tres" id="9_npdel"]
 [ext_resource type="Resource" uid="uid://daj5ax48x33kv" path="res://Elements/nitrogen.tres" id="10_a4q47"]
@@ -21,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://b7bmvirjdedbd" path="res://Elements/iron.tres" id="13_e7bis"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="14_jwne2"]
 [ext_resource type="Texture2D" uid="uid://cg3mnvxqaha5h" path="res://Assets/Carved_3Slides.png" id="15_8icgp"]
+[ext_resource type="Texture2D" uid="uid://drhlvcxa0e8i2" path="res://Assets/Border All 1 copy.png" id="17_ctgy0"]
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
 [ext_resource type="Script" path="res://Scripts/BubbleTextureChanger.cs" id="18_lofsh"]
 
@@ -36,12 +38,45 @@ point_count = 2
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "potionShelf")]
 script = ExtResource("1_js8ej")
-elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/ElementGrid")
+elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/TextureRect/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
 pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/Label")
 potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/PotionShelf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 90
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(383.725, 650)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_qpxrg")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(613.15, 753.145)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_qpxrg")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 z_index = -2
@@ -86,22 +121,22 @@ cauldronSprite = NodePath("../VBoxContainer/CauldronNode/Cauldron")
 bubbles = NodePath("../VBoxContainer/CauldronNode/CPUParticles2D")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer"]
-custom_minimum_size = Vector2(240.93, 496.17)
 layout_mode = 2
-texture = ExtResource("6_yaklw")
-stretch_mode = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_mdepf")
+stretch_mode = 2
 
 [node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer/TextureRect2" instance=ExtResource("1_j0y0x")]
-layout_mode = 2
-anchors_preset = 0
-anchor_left = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -1.4
-offset_top = 25.945
-offset_right = 248.6
-offset_bottom = 711.165
-scale = Vector2(0.97, 0.99)
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -111.58
+offset_top = -176.77
+offset_right = 138.76
+offset_bottom = 197.23
+scale = Vector2(0.94, 0.935)
 elements = Array[Object]([ExtResource("5_jehs0"), ExtResource("6_rfdun"), ExtResource("5_nq7kf"), ExtResource("9_npdel"), ExtResource("10_a4q47"), ExtResource("11_wjevn"), ExtResource("12_n6brp"), ExtResource("13_e7bis")])
 defaultElement = ExtResource("5_nq7kf")
 
@@ -110,10 +145,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -135.465
-offset_top = 21.0
-offset_right = 130.535
-offset_bottom = 115.0
+offset_left = -143.465
+offset_top = -144.96
+offset_right = 138.535
+offset_bottom = -50.96
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -142,8 +177,20 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer" instance=ExtResource("1_n6s50")]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+texture = ExtResource("17_ctgy0")
+stretch_mode = 5
+
+[node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/TextureRect" instance=ExtResource("1_n6s50")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 24.31
+offset_top = -5.3
+offset_right = 746.31
+offset_bottom = 515.7
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(157.39, 47.13)
