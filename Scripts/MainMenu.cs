@@ -8,20 +8,12 @@ public partial class MainMenu : Control
 	[Export] public Container instructionsContainer;
 	[Export] public Container creditsContainer;
 	
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public void ExitGame() {
+		GetTree().Quit();
 	}
 
 	public void _on_play_button_pressed()
 	{
-		GD.Print("play pressed");
 		GetTree().ChangeSceneToFile("res://Scenes/cutscene.tscn");
 	}
 
@@ -37,15 +29,10 @@ public partial class MainMenu : Control
 		creditsContainer.Visible = true; 
 	}
 
-	public void _on_back_button_pressed()
+	public void Back()
 	{
 		mainContainer.Visible = true;
 		instructionsContainer.Visible = false;
-	}
-
-	public void _on_cred_back_button_pressed()
-	{
-		mainContainer.Visible = true;
 		creditsContainer.Visible = false;
 	}
 

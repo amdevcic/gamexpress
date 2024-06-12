@@ -15,24 +15,7 @@ public partial class MainMenuAudio : Node
 		music.Play();
 	}
 
-	public void _on_play_button_pressed() {
+	public void ButtonClickPlay() {
 		buttonclick.Play();
 	}
-
-	public void _on_instructions_button_pressed() {
-		buttonclick.Play();
-	}
-
-	public void _on_credits_button_pressed() {
-		buttonclick.Play();
-	}
-
-	public void _on_back_button_pressed() {
-		buttonclick.Play();
-	}
-
-	public void _on_cred_back_button_pressed() {
-		buttonclick.Play();
-	}
-
 }
