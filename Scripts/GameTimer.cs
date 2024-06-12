@@ -3,14 +3,13 @@ using System;
 using System.Runtime.CompilerServices;
 
 public partial class GameTimer : Timer
-{	
-	// Adds specified time to timer
+{
+	double maxTime = 100;	
 	public void AddTime(double time)
 	{
-		//WaitTime = (TimeLeft + time);
-		Start(TimeLeft + time);
+		double newTime = Math.Min(TimeLeft+time, maxTime);
+		Start(newTime);
 		GD.Print("added ", time, " seconds.");
-		//Timer.
 	}
 	
 }

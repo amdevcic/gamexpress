@@ -105,7 +105,7 @@ public partial class ElementGrid : Control
             if (!sameRow && !sameColumn) {
                 pts = 0;
                 foreach (var pos in carbonPositions) {
-                    slots[pos.y, pos.x].SetIncorrect();
+                    incorrect.Add(slots[pos.y, pos.x]);
                 }
             } else {
                 foreach (var pos in carbonPositions) {
