@@ -20,10 +20,10 @@
 [ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="11_wjevn"]
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="12_n6brp"]
 [ext_resource type="Resource" uid="uid://b7bmvirjdedbd" path="res://Elements/iron.tres" id="13_e7bis"]
-[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/fonts/Retro Gaming.ttf" id="14_jwne2"]
 [ext_resource type="Texture2D" uid="uid://cg3mnvxqaha5h" path="res://Assets/Carved_3Slides.png" id="15_8icgp"]
 [ext_resource type="Texture2D" uid="uid://drhlvcxa0e8i2" path="res://Assets/Border All 1 copy.png" id="17_ctgy0"]
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
+[ext_resource type="FontFile" uid="uid://o18mr7bbmc7i" path="res://Assets/fonts/Alkhemikal.ttf" id="18_egf7j"]
 [ext_resource type="Script" path="res://Scripts/BubbleTextureChanger.cs" id="18_lofsh"]
 [ext_resource type="AudioStream" uid="uid://bmecui5qew53t" path="res://Audio/gamemusic.mp3" id="26_sowot"]
 [ext_resource type="AudioStream" uid="uid://ofn2ihsnwyno" path="res://Audio/placeFlask.mp3" id="27_em1wc"]
@@ -33,8 +33,8 @@
 [ext_resource type="AudioStream" uid="uid://pnseehaqq73t" path="res://Audio/bubbling.mp3" id="31_x8bxn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
-font = ExtResource("14_jwne2")
-font_size = 32
+font = ExtResource("18_egf7j")
+font_size = 42
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3.785, 2.475)
 
@@ -53,48 +53,15 @@ point_count = 2
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "newPointLabel", "potionShelf")]
 script = ExtResource("1_js8ej")
-elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/VBoxContainer/TextureRect/ElementGrid")
+elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/TextureRect/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
-pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/Label")
-newPointLabel = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2/newPointLabel")
-potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/TextureRect2/PotionShelf")
+pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2/Label")
+newPointLabel = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2/newPointLabel")
+potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/PotionShelf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 90
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(383.725, 650)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = ExtResource("2_qpxrg")
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(613.15, 753.145)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = ExtResource("2_qpxrg")
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 z_index = -2
 z_as_relative = false
 anchors_preset = 15
@@ -105,7 +72,7 @@ grow_vertical = 2
 texture = ExtResource("1_h727x")
 stretch_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect"]
+[node name="Vignette" type="TextureRect" parent="CanvasLayer/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,29 +89,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_rkyal")
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 2
-theme_override_constants/separation = 115
+theme_override_constants/separation = 60
 
 [node name="GameTimer" parent="CanvasLayer/UI/HBoxContainer" node_paths=PackedStringArray("cauldronSprite", "bubbles") instance=ExtResource("1_rtgui")]
 layout_mode = 2
 size_flags_vertical = 4
-cauldronSprite = NodePath("../VBoxContainer/CauldronNode/Cauldron")
-bubbles = NodePath("../VBoxContainer/CauldronNode/CPUParticles2D")
+step = 0.1
+cauldronSprite = NodePath("../GridCauldron/VBoxContainer/CauldronNode/Cauldron")
+bubbles = NodePath("../GridCauldron/VBoxContainer/CauldronNode/CPUParticles2D")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="ShelfPoints" type="NinePatchRect" parent="CanvasLayer/UI/HBoxContainer"]
+custom_minimum_size = Vector2(340, 650)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_qpxrg")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -159.5
+offset_right = 96.0
+offset_bottom = 159.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_mdepf")
 stretch_mode = 2
 
-[node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer/TextureRect2" instance=ExtResource("1_j0y0x")]
+[node name="PotionShelf" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2" instance=ExtResource("1_j0y0x")]
 layout_mode = 1
 anchors_preset = 8
 anchor_top = 0.5
@@ -157,7 +147,7 @@ scale = Vector2(0.94, 0.935)
 elements = Array[Object]([ExtResource("5_jehs0"), ExtResource("6_rfdun"), ExtResource("5_nq7kf"), ExtResource("9_npdel"), ExtResource("10_a4q47"), ExtResource("11_wjevn"), ExtResource("12_n6brp"), ExtResource("13_e7bis")])
 defaultElement = ExtResource("5_nq7kf")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/TextureRect2"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -172,7 +162,7 @@ size_flags_vertical = 0
 texture = ExtResource("15_8icgp")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -190,7 +180,7 @@ label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="newPointLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/TextureRect2/TextureRect2"]
+[node name="newPointLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -207,29 +197,52 @@ label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="GridCauldron" type="NinePatchRect" parent="CanvasLayer/UI/HBoxContainer"]
+custom_minimum_size = Vector2(613.15, 753.145)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_qpxrg")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/GridCauldron"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -713.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("17_ctgy0")
 stretch_mode = 5
 
-[node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("good", "bad", "splash") instance=ExtResource("1_n6s50")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 24.31
-offset_top = -5.3
-offset_right = 746.31
-offset_bottom = 515.7
-good = NodePath("../../../../../../AudioManager/success")
-bad = NodePath("../../../../../../AudioManager/fail")
-splash = NodePath("../../../../../../AudioManager/Splash")
+[node name="ElementGrid" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/TextureRect" node_paths=PackedStringArray("good", "bad", "splash") instance=ExtResource("1_n6s50")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -260.0
+offset_right = 262.0
+offset_bottom = 261.0
+good = NodePath("../../../../../../../AudioManager/success")
+bad = NodePath("../../../../../../../AudioManager/fail")
+splash = NodePath("../../../../../../../AudioManager/Splash")
 
-[node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer"]
 custom_minimum_size = Vector2(157.39, 47.13)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -239,17 +252,17 @@ shortcut = SubResource("Shortcut_jl0rf")
 shortcut_in_tooltip = false
 text = "Mix!"
 
-[node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+[node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode" instance=ExtResource("5_tix3p")]
+[node name="Cauldron" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/CauldronNode" instance=ExtResource("5_tix3p")]
 position = Vector2(249, 61)
 scale = Vector2(2, 2)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/CauldronNode"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/CauldronNode"]
 position = Vector2(257, 45.865)
 scale = Vector2(1.065, 1.065)
 amount = 10
@@ -291,4 +304,4 @@ stream = ExtResource("30_geqr5")
 stream = ExtResource("31_x8bxn")
 volume_db = 5.233
 
-[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/Button" to="." method="Evaluate"]

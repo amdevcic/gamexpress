@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6gagw6tf4box"
-path="res://.godot/imported/loxd.png-efcac4d6f81ef179d57455d5708cbf46.ctex"
+uid="uid://b3gxeqp4yvtq2"
+path="res://.godot/imported/bar_empty.png-a369d09ff4e715c5af15ca136dc4efc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/loxd.png"
-dest_files=["res://.godot/imported/loxd.png-efcac4d6f81ef179d57455d5708cbf46.ctex"]
+source_file="res://Assets/bar_empty.png"
+dest_files=["res://.godot/imported/bar_empty.png-a369d09ff4e715c5af15ca136dc4efc9.ctex"]
 
 [params]
 
