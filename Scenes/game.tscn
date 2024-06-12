@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=36 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -37,6 +37,15 @@ font = ExtResource("14_jwne2")
 font_size = 32
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3.785, 2.475)
+
+[sub_resource type="InputEventKey" id="InputEventKey_nqmpd"]
+device = -1
+keycode = 4194309
+physical_keycode = 4194309
+key_label = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_jl0rf"]
+events = [SubResource("InputEventKey_nqmpd")]
 
 [sub_resource type="Curve" id="Curve_iac1t"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.54991), 0.0, 0.0, 0, 0]
@@ -225,6 +234,9 @@ custom_minimum_size = Vector2(157.39, 47.13)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+focus_mode = 0
+shortcut = SubResource("Shortcut_jl0rf")
+shortcut_in_tooltip = false
 text = "Mix!"
 
 [node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
@@ -279,4 +291,4 @@ stream = ExtResource("30_geqr5")
 stream = ExtResource("31_x8bxn")
 volume_db = 5.233
 
-[connection signal="button_down" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/VBoxContainer/Button" to="." method="Evaluate"]

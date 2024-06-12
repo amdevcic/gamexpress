@@ -30,9 +30,9 @@ public partial class Game : Node2D
 			points += pts;
 			potionShelf.ClearPotions();
 			potionShelf.Populate();
+			newPointAlert(pts);
 		}
 		pointCounter.Text = points.ToString();
-		newPointAlert(pts);
 		global_vars.score = points;
 	}
 
