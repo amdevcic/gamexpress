@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://rwevn483qeam"
-path="res://.godot/imported/Retro Gaming.ttf-eedcff204cbd961c5c0b4aa8cc15441d.fontdata"
+uid="uid://bxnaowp6m0cvd"
+path="res://.godot/imported/PixelOperator.ttf-3b2e3c6e101b8a8db4bc40c8beb08c88.fontdata"
 
 [deps]
 
-source_file="res://Assets/Retro Gaming.ttf"
-dest_files=["res://.godot/imported/Retro Gaming.ttf-eedcff204cbd961c5c0b4aa8cc15441d.fontdata"]
+source_file="res://Assets/fonts/PixelOperator.ttf"
+dest_files=["res://.godot/imported/PixelOperator.ttf-3b2e3c6e101b8a8db4bc40c8beb08c88.fontdata"]
 
 [params]
 

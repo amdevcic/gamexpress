@@ -13,14 +13,14 @@
 [ext_resource type="Resource" uid="uid://dltajr227moyl" path="res://Elements/hydrogen.tres" id="5_nq7kf"]
 [ext_resource type="PackedScene" uid="uid://ecs8jdpasjyq" path="res://Scenes/cauldron.tscn" id="5_tix3p"]
 [ext_resource type="Texture2D" uid="uid://dnubx4fne2qy3" path="res://Assets/bubblered.png" id="6_pkpic"]
-[ext_resource type="Resource" path="res://Elements/chlorine.tres" id="6_rfdun"]
-[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://Assets/gameTheme.tres" id="7_rkyal"]
-[ext_resource type="Resource" path="res://Elements/phosphorus.tres" id="9_npdel"]
+[ext_resource type="Resource" uid="uid://cx0yrcijwgts3" path="res://Elements/chlorine.tres" id="6_rfdun"]
+[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://gameTheme.tres" id="7_rkyal"]
+[ext_resource type="Resource" uid="uid://c3hssvv6eex56" path="res://Elements/phosphorus.tres" id="9_npdel"]
 [ext_resource type="Resource" uid="uid://daj5ax48x33kv" path="res://Elements/nitrogen.tres" id="10_a4q47"]
 [ext_resource type="Resource" uid="uid://btk0i7mpfhc3l" path="res://Elements/oxygen.tres" id="11_wjevn"]
 [ext_resource type="Resource" uid="uid://b0mtqi2rwhgj1" path="res://Elements/sulphur.tres" id="12_n6brp"]
-[ext_resource type="Resource" path="res://Elements/iron.tres" id="13_e7bis"]
-[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="14_jwne2"]
+[ext_resource type="Resource" uid="uid://b7bmvirjdedbd" path="res://Elements/iron.tres" id="13_e7bis"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/fonts/Retro Gaming.ttf" id="14_jwne2"]
 [ext_resource type="Texture2D" uid="uid://cg3mnvxqaha5h" path="res://Assets/Carved_3Slides.png" id="15_8icgp"]
 [ext_resource type="Texture2D" uid="uid://drhlvcxa0e8i2" path="res://Assets/Border All 1 copy.png" id="17_ctgy0"]
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
@@ -112,6 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_rkyal")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -224,7 +225,6 @@ custom_minimum_size = Vector2(157.39, 47.13)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("7_rkyal")
 text = "Mix!"
 
 [node name="CauldronNode" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]

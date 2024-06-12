@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/cutscene.cs" id="1_wkfbd"]
 [ext_resource type="Texture2D" uid="uid://15d4fjn55gcu" path="res://Assets/portrait1.png" id="2_7qpyl"]
 [ext_resource type="Texture2D" uid="uid://hg4wwhsoo7jd" path="res://Assets/portrait2.png" id="2_s71po"]
-[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_xnom0"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/fonts/Retro Gaming.ttf" id="4_xnom0"]
 [ext_resource type="AudioStream" uid="uid://ondjldp7lrie" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cursor 1 (Saw).mp3" id="6_0i8jm"]
 [ext_resource type="AudioStream" uid="uid://codvhsn1hpr31" path="res://Audio/JDSherbert - Pixel UI SFX Pack - Cancel 2 (Square).mp3" id="7_fi6u4"]
 [ext_resource type="AudioStream" uid="uid://dqef7o0orquxx" path="res://Audio/18_Thunder_02.mp3" id="8_6gudh"]

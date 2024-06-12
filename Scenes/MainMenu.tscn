@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cu3hq3k2so02f"]
+[gd_scene load_steps=17 format=3 uid="uid://cu3hq3k2so02f"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_hje8p"]
 [ext_resource type="Shader" path="res://Assets/MainMenuScroll.gdshader" id="2_dek1n"]
 [ext_resource type="Texture2D" uid="uid://dqnc2edjdapm3" path="res://Assets/Paper9.png" id="3_5xdaa"]
-[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://Assets/gameTheme.tres" id="3_hn56x"]
-[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_x4oai"]
+[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://gameTheme.tres" id="3_hn56x"]
+[ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/fonts/Retro Gaming.ttf" id="4_x4oai"]
+[ext_resource type="Texture2D" uid="uid://cf3pbgtnkmbtd" path="res://Assets/PaperTab.png" id="5_mshmi"]
 [ext_resource type="Texture2D" uid="uid://m3ffmmg4b4mj" path="res://Assets/Background copy.png" id="6_hxsyr"]
 [ext_resource type="Script" path="res://Scripts/MainMenuAudio.cs" id="8_su2sf"]
 [ext_resource type="AudioStream" uid="uid://byp6c61s18acd" path="res://Audio/mainmenu.mp3" id="9_rdi0e"]
@@ -23,6 +24,41 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 18
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 9.435)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6y2vq"]
+texture = ExtResource("5_mshmi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_06gde"]
+texture = ExtResource("5_mshmi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cj737"]
+texture = ExtResource("5_mshmi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="Theme" id="Theme_ipffu"]
+Button/colors/font_color = Color(0.165657, 0.165656, 0.165656, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 22
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_6y2vq")
+Button/styles/normal = SubResource("StyleBoxTexture_06gde")
+Button/styles/pressed = SubResource("StyleBoxTexture_cj737")
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("mainContainer", "instructionsContainer", "creditsContainer")]
 layout_mode = 3
@@ -50,6 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_hn56x")
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 200
@@ -57,7 +94,7 @@ theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="RichTextLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
@@ -71,28 +108,28 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_hn56x")
+focus_mode = 0
 text = "Play"
 
 [node name="InstructionsButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_hn56x")
+focus_mode = 0
 text = "Instructions"
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_hn56x")
+focus_mode = 0
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_hn56x")
+focus_mode = 0
 text = "Exit"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
@@ -102,6 +139,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_hn56x")
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 300
@@ -145,7 +183,7 @@ autowrap_mode = 2
 
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_hn56x")
+theme = SubResource("Theme_ipffu")
 text = "Back"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
@@ -155,6 +193,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_hn56x")
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 300
@@ -205,7 +244,7 @@ horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_hn56x")
+theme = SubResource("Theme_ipffu")
 text = "Back"
 
 [node name="SoundContainer" type="Node" parent="."]

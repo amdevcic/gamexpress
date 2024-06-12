@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://bkcn24m2am66h"
+path="res://.godot/imported/alkhemikal_buttons.fnt-1cc6fefaaca439d36b96fe70b6f76c2c.fontdata"
+
+[deps]
+
+source_file="res://Assets/fonts/alkhemikal_buttons.fnt"
+dest_files=["res://.godot/imported/alkhemikal_buttons.fnt-1cc6fefaaca439d36b96fe70b6f76c2c.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

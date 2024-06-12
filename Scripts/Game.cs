@@ -15,15 +15,15 @@ public partial class Game : Node2D
 	public AudioStreamPlayer2D music;
 	public AudioStreamPlayer2D bubbles;
 
-    public override void _Ready()
-    {
-        gameTimer = bar._timer;
+	public override void _Ready()
+	{
+		gameTimer = bar._timer;
 		music = GetNode<AudioStreamPlayer2D>("AudioManager/Music");
 		bubbles = GetNode<AudioStreamPlayer2D>("AudioManager/Bubbling");
 		music.Play();
 		bubbles.Play();
-    }
-    public void Evaluate() {
+	}
+	public void Evaluate() {
 		int pts = elementGrid.EvaluateBoard();
 		if (pts > 0) {
 			gameTimer.AddTime((double)pts/15);
