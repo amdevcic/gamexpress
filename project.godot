@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Gamexpress"
+config/name="AlcheMissed"
+config/description="A game about connecting elements."
+config/version="1.0"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/show_image=false
+config/icon="res://Assets/gameIcon.png"
 
 [autoload]
 

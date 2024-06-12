@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_hje8p"]
 [ext_resource type="Shader" path="res://Assets/MainMenuScroll.gdshader" id="2_dek1n"]
 [ext_resource type="Texture2D" uid="uid://dqnc2edjdapm3" path="res://Assets/Paper9.png" id="3_5xdaa"]
-[ext_resource type="Theme" uid="uid://dc3onjysnnjvf" path="res://Assets/gameTheme.tres" id="3_hn56x"]
+[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://Assets/gameTheme.tres" id="3_hn56x"]
 [ext_resource type="FontFile" uid="uid://rwevn483qeam" path="res://Assets/Retro Gaming.ttf" id="4_x4oai"]
 [ext_resource type="Texture2D" uid="uid://m3ffmmg4b4mj" path="res://Assets/Background copy.png" id="6_hxsyr"]
 [ext_resource type="Script" path="res://Scripts/MainMenuAudio.cs" id="8_su2sf"]
