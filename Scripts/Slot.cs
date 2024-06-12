@@ -67,5 +67,6 @@ public partial class Slot : ColorRect
     public void ClearSlot() {
         this.Element = null;
         this.icon.Texture = null;
+        TooltipText = "";
     }
 }
