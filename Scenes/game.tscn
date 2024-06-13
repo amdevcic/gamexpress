@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=41 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dfvroa0b5j05q" path="res://Assets/bubblegreen.png" id="17_iifr2"]
 [ext_resource type="FontFile" uid="uid://o18mr7bbmc7i" path="res://Assets/fonts/Alkhemikal.ttf" id="18_egf7j"]
 [ext_resource type="Script" path="res://Scripts/BubbleTextureChanger.cs" id="18_lofsh"]
+[ext_resource type="PackedScene" uid="uid://cyqbetde3lo2s" path="res://Scenes/options_menu.tscn" id="26_llghc"]
 [ext_resource type="AudioStream" uid="uid://bmecui5qew53t" path="res://Audio/gamemusic.mp3" id="26_sowot"]
 [ext_resource type="AudioStream" uid="uid://ofn2ihsnwyno" path="res://Audio/placeFlask.mp3" id="27_em1wc"]
 [ext_resource type="AudioStream" uid="uid://0um2ew5t8iyk" path="res://Audio/evaluateAffirmitive.mp3" id="28_uwyob"]
@@ -76,8 +77,6 @@ potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/Po
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
-z_index = -2
-z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -308,31 +307,33 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "11"
 
-[node name="PauseMenu" type="PanelContainer" parent="CanvasLayer"]
+[node name="PauseMenu" type="CenterContainer" parent="CanvasLayer"]
 process_mode = 2
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_rkyal")
+
+[node name="bg" type="PanelContainer" parent="CanvasLayer/PauseMenu"]
+process_mode = 2
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+theme = ExtResource("7_rkyal")
 theme_override_styles/panel = SubResource("StyleBoxFlat_v7qv3")
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Paused"
 label_settings = SubResource("LabelSettings_j7ps3")
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_mode = 0
@@ -341,17 +342,21 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Resume"
 
-[node name="Options" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_mode = 0
 text = "Options"
 
-[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_mode = 0
 text = "Quit to menu"
+
+[node name="Options" parent="CanvasLayer/PauseMenu" instance=ExtResource("26_llghc")]
+visible = false
+layout_mode = 2
 
 [node name="AudioManager" type="Node" parent="."]
 
@@ -379,4 +384,5 @@ volume_db = 5.233
 
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/Button" to="." method="Evaluate"]
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Buttons/Pause" to="." method="SetPaused" binds= [true]]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Resume" to="." method="SetPaused" binds= [false]]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Resume" to="." method="SetPaused" binds= [false]]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Options" to="CanvasLayer/PauseMenu/Options" method="set_visible" binds= [true]]

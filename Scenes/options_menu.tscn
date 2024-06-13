@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqbetde3lo2s"]
+
+[ext_resource type="Theme" uid="uid://b50le28ctws5j" path="res://gameTheme.tres" id="1_12q68"]
+[ext_resource type="Script" path="res://Scenes/Options.cs" id="2_6a85y"]
+
+[node name="OptionsMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 300)
+theme = ExtResource("1_12q68")
+script = ExtResource("2_6a85y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Sound effects"
+
+[node name="CheckBox2" type="CheckBox" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Skip cutscenes"
+
+[node name="CheckBox3" type="CheckBox" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+text = "Options"
+
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="set_visible" binds= [false]]
