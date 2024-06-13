@@ -386,3 +386,4 @@ volume_db = 5.233
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Buttons/Pause" to="." method="SetPaused" binds= [true]]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Resume" to="." method="SetPaused" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Options" to="CanvasLayer/PauseMenu/Options" method="set_visible" binds= [true]]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="QuitToMenu"]

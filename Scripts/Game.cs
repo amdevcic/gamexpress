@@ -50,4 +50,9 @@ public partial class Game : Node2D
 		GetTree().Paused = paused;
 		GetNode<Control>("CanvasLayer/PauseMenu").Visible = paused;
 	}
+
+	public void QuitToMenu() {
+		GetTree().Paused = false;
+		GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+	}
 }
