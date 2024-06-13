@@ -22,6 +22,7 @@ public partial class Game : Node2D
 		bubbles = GetNode<AudioStreamPlayer2D>("AudioManager/Bubbling");
 		music.Play();
 		bubbles.Play();
+		SetPaused(false);
 	}
 	public void Evaluate() {
 		int pts = elementGrid.EvaluateBoard();
@@ -43,5 +44,10 @@ public partial class Game : Node2D
 		}
 		await Task.Delay(2000);
 		newPointLabel.Text = "";
+	}
+
+	public void SetPaused(bool paused) {
+		GetTree().Paused = paused;
+		GetNode<Control>("CanvasLayer/PauseMenu").Visible = paused;
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=40 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -51,11 +51,25 @@ events = [SubResource("InputEventKey_nqmpd")]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.54991), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="InputEventKey" id="InputEventKey_7x7wy"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_xm3dg"]
+events = [SubResource("InputEventKey_7x7wy")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7qv3"]
+bg_color = Color(0, 0, 0, 0.584314)
+corner_detail = 1
+
+[sub_resource type="Shortcut" id="Shortcut_6blvw"]
+events = [SubResource("InputEventKey_7x7wy")]
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("elementGrid", "bar", "pointCounter", "newPointLabel", "potionShelf")]
 script = ExtResource("1_js8ej")
 elementGrid = NodePath("CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/TextureRect/ElementGrid")
 bar = NodePath("CanvasLayer/UI/HBoxContainer/GameTimer")
-pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2/Label")
+pointCounter = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2/Points")
 newPointLabel = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2/newPointLabel")
 potionShelf = NodePath("CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/PotionShelf")
 
@@ -162,7 +176,7 @@ size_flags_vertical = 0
 texture = ExtResource("15_8icgp")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2"]
+[node name="Points" type="Label" parent="CanvasLayer/UI/HBoxContainer/ShelfPoints/TextureRect2/TextureRect2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -280,6 +294,65 @@ bubbleTex1 = ExtResource("17_iifr2")
 bubbleTex2 = ExtResource("5_hm25v")
 bubbleTex3 = ExtResource("6_pkpic")
 
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Pause" type="Button" parent="CanvasLayer/UI/HBoxContainer/Buttons"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_xm3dg")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "11"
+
+[node name="PauseMenu" type="PanelContainer" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_rkyal")
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7qv3")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_j7ps3")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_6blvw")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Resume"
+
+[node name="Options" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Options"
+
+[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Quit to menu"
+
 [node name="AudioManager" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="AudioManager"]
@@ -305,3 +378,5 @@ stream = ExtResource("31_x8bxn")
 volume_db = 5.233
 
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/Button" to="." method="Evaluate"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Buttons/Pause" to="." method="SetPaused" binds= [true]]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Resume" to="." method="SetPaused" binds= [false]]
