@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b50le28ctws5j"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://b50le28ctws5j"]
 
 [ext_resource type="FontFile" uid="uid://bkcn24m2am66h" path="res://Assets/fonts/alkhemikal_buttons.fnt" id="1_u4jws"]
 [ext_resource type="Texture2D" uid="uid://doypbpqwnwtam" path="res://Assets/buttons/button_empty.png" id="2_f1ccw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxscvpm6fgnjf" path="res://Assets/buttons/button_empty_pressed.png" id="3_6hbt0"]
 [ext_resource type="Texture2D" uid="uid://bd80igqxd53qd" path="res://Assets/buttons/checkbox_checked.png" id="4_clhvg"]
 [ext_resource type="Texture2D" uid="uid://qdwy0d71d0yi" path="res://Assets/buttons/checkbox_empty.png" id="4_wn2ma"]
+[ext_resource type="Texture2D" uid="uid://bk118qnc1pyo7" path="res://Assets/buttons/panel.png" id="6_x2bc5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xvqy"]
 content_margin_bottom = 11.0
@@ -44,6 +45,13 @@ modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l7ch"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlpw4"]
+texture = ExtResource("6_x2bc5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
 [resource]
 default_font = ExtResource("2_gk1n0")
 default_font_size = 32
@@ -68,4 +76,4 @@ CheckBox/styles/hover = SubResource("StyleBoxEmpty_hhscs")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_a5dbp")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_65y5j")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_5l7ch")
-HeaderLarge/font_sizes/font_size = 40
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dlpw4")
