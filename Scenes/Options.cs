@@ -1,19 +1,71 @@
 using Godot;
 using System;
+using System.IO;
 
 public partial class Options : PanelContainer
 {
-	public static bool Sounds = true;
-	public static bool Music = true;
-	public static bool SkipCutscenes = false;
+	public bool Sounds = true;
+	public bool Music = true;
+	public bool SkipCutscenes = false;
 
-	public static void SetSounds(bool on) {
+	public void SetSounds(bool on) {
 		Sounds = on;
 	}
-	public static void SetMusic(bool on) {
+	public void SetMusic(bool on) {
 		Music = on;
 	}
-	public static void SetSkipCutscenes(bool on) {
+	public void SetSkipCutscenes(bool on) {
 		SkipCutscenes = on;
+	}
+
+    public override void _Ready()
+    {
+        GD.Print("_Ready called");
+        if (!Godot.FileAccess.FileExists("user://settings.cfg")) {
+            GD.Print("Settings file does not exist. Creating default settings.");
+            SaveSettings();
+        }
+		LoadSettings();
+		GetNode<CheckBox>("MarginContainer/VBoxContainer/GridContainer/Music").ButtonPressed = Music;
+		GetNode<CheckBox>("MarginContainer/VBoxContainer/GridContainer/Sounds").ButtonPressed = Sounds;
+		GetNode<CheckBox>("MarginContainer/VBoxContainer/GridContainer/Cutscenes").ButtonPressed = SkipCutscenes;
+
+		VisibilityChanged += () => {
+			if (Visible) LoadSettings();
+			else SaveSettings();
+		};
+    }
+
+    public void SaveSettings() {
+		GD.Print("SaveSettings called");
+		var config = new ConfigFile();
+
+		// Store some values.
+		config.SetValue("Audio", "MusicEnabled", Music);
+		config.SetValue("Audio", "SoundsEnabled", Sounds);
+		config.SetValue("Gameplay", "SkipCutscene", SkipCutscenes);
+
+		// Save it to a file (overwrite if already exists).
+		Error err = config.Save("user://settings.cfg");
+		if (err == Error.Ok) {
+			GD.Print("Settings saved successfully.");
+		} else {
+			GD.Print("Failed to save settings: ", err);
+		}
+	}
+
+	public void LoadSettings() {
+		GD.Print("LoadSettings called");
+		var config = new ConfigFile();
+		Error err = config.Load("user://settings.cfg");
+		if (err != Error.Ok) {
+			GD.Print("Failed to load settings: ", err);
+			return;
+		}
+
+		SetMusic((bool)config.GetValue("Audio", "MusicEnabled", Music));
+		SetSounds((bool)config.GetValue("Audio", "SoundsEnabled", Sounds));
+		SetSkipCutscenes((bool)config.GetValue("Gameplay", "SkipCutscene", SkipCutscenes));
+		GD.Print("Settings loaded: Music=", Music, ", Sounds=", Sounds, ", SkipCutscenes=", SkipCutscenes);
 	}
 }

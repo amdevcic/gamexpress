@@ -51,21 +51,21 @@ columns = 2
 layout_mode = 2
 text = "Music"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Music" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Sound effects"
 
-[node name="CheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Sounds" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Skip cutscenes"
 
-[node name="CheckBox3" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Cutscenes" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -78,7 +78,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Back"
 
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/CheckBox" to="." method="SetMusic"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/CheckBox2" to="." method="SetSounds"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/CheckBox3" to="." method="SetSkipCutscenes"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/Music" to="." method="SetMusic"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/Sounds" to="." method="SetSounds"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/Cutscenes" to="." method="SetSkipCutscenes"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="set_visible" binds= [false]]
