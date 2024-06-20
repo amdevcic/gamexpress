@@ -43,7 +43,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 80
+theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 5
 columns = 2
 
@@ -63,7 +63,7 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Skip cutscenes"
+text = "Skip intro cutscene"
 
 [node name="Cutscenes" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2

@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class MainMenu : Control
 {
@@ -14,7 +13,12 @@ public partial class MainMenu : Control
 
 	public void _on_play_button_pressed()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/cutscene.tscn");
+		bool skip = GetNode<Options>("CanvasLayer/OptionsMenu").SkipCutscenes;
+		if (skip) {
+			GetTree().ChangeSceneToFile("res://Scenes/game.tscn");
+		} else {
+			GetTree().ChangeSceneToFile("res://Scenes/cutscene.tscn");
+		}
 	}
 
 	public void _on_instructions_button_pressed()
