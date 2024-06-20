@@ -53,6 +53,7 @@ text = "Music"
 
 [node name="Music" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -60,6 +61,7 @@ text = "Sound effects"
 
 [node name="Sounds" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
