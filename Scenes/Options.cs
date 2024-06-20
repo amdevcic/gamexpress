@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.IO;
 
 public partial class Options : PanelContainer
 {
@@ -10,9 +8,11 @@ public partial class Options : PanelContainer
 
 	public void SetSounds(bool on) {
 		Sounds = on;
+		AudioServer.SetBusMute(AudioServer.GetBusIndex("Sounds"), !Sounds);
 	}
 	public void SetMusic(bool on) {
 		Music = on;
+		AudioServer.SetBusMute(AudioServer.GetBusIndex("Music"), !Music);
 	}
 	public void SetSkipCutscenes(bool on) {
 		SkipCutscenes = on;
@@ -20,7 +20,6 @@ public partial class Options : PanelContainer
 
     public override void _Ready()
     {
-        GD.Print("_Ready called");
         if (!Godot.FileAccess.FileExists("user://settings.cfg")) {
             GD.Print("Settings file does not exist. Creating default settings.");
             SaveSettings();

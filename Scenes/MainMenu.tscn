@@ -236,9 +236,11 @@ script = ExtResource("8_su2sf")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="SoundContainer"]
 stream = ExtResource("9_rdi0e")
+bus = &"Music"
 
 [node name="ButtonS" type="AudioStreamPlayer2D" parent="SoundContainer"]
 stream = ExtResource("10_x2uvy")
+bus = &"Sounds"
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="SoundContainer" method="ButtonClickPlay"]

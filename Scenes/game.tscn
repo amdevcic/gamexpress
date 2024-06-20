@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://gx1wim4ep8yf"]
+[gd_scene load_steps=42 format=3 uid="uid://gx1wim4ep8yf"]
 
 [ext_resource type="Texture2D" uid="uid://bn1gbpempmmh4" path="res://Assets/BasicCastleTiles.png" id="1_h727x"]
 [ext_resource type="PackedScene" uid="uid://dlpmct52t3yc1" path="res://Scenes/potion_shelf.tscn" id="1_j0y0x"]
@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://rivc42m3rt8u" path="res://Audio/evaluateFail.mp3" id="29_uumu2"]
 [ext_resource type="AudioStream" uid="uid://b754wcdrimtq2" path="res://Audio/splash.mp3" id="30_geqr5"]
 [ext_resource type="AudioStream" uid="uid://pnseehaqq73t" path="res://Audio/bubbling.mp3" id="31_x8bxn"]
+[ext_resource type="AudioStream" uid="uid://csxdryodokibt" path="res://Audio/buttonPressed.mp3" id="33_1ng5m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7ps3"]
 font = ExtResource("18_egf7j")
@@ -360,30 +361,42 @@ visible = false
 layout_mode = 2
 
 [node name="AudioManager" type="Node" parent="."]
+process_mode = 3
 
 [node name="Music" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("26_sowot")
 volume_db = -9.156
+bus = &"Music"
 
 [node name="BottlePlace" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("27_em1wc")
 volume_db = 13.866
+bus = &"Sounds"
 
 [node name="success" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("28_uwyob")
+bus = &"Sounds"
 
 [node name="fail" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("29_uumu2")
 volume_db = -7.195
+bus = &"Sounds"
 
 [node name="Splash" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("30_geqr5")
+bus = &"Sounds"
 
 [node name="Bubbling" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("31_x8bxn")
 volume_db = 5.233
+bus = &"Sounds"
+
+[node name="ButtonS" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("33_1ng5m")
+bus = &"Sounds"
 
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/GridCauldron/VBoxContainer/Button" to="." method="Evaluate"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Buttons/Pause" to="AudioManager/ButtonS" method="play"]
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Buttons/Pause" to="." method="SetPaused" binds= [true]]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Resume" to="." method="SetPaused" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Options" to="CanvasLayer/PauseMenu/Options" method="set_visible" binds= [true]]

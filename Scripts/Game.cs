@@ -10,6 +10,7 @@ public partial class Game : Node2D
 	[Export] Label pointCounter;
 	[Export] Label newPointLabel;
 	[Export] PotionShelf potionShelf;
+	[Export] Options options;
 	int points;
 
 	public AudioStreamPlayer2D music;
@@ -54,5 +55,9 @@ public partial class Game : Node2D
 	public void QuitToMenu() {
 		GetTree().Paused = false;
 		GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+	}
+
+	public void UpdateSettings() {
+		
 	}
 }
